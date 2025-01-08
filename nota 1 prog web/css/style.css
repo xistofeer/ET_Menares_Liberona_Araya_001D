@@ -30,7 +30,7 @@ nav ul li{
     display: flex;
     align-items: center;
 }
-nav ul li img{
+nav ul li.headerlogo img{
     width: 100px;
     height: 100px;
     object-fit: contain;
