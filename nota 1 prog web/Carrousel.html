@@ -10,7 +10,7 @@
     
 
     <style>
-        /* Estilos básicos para el carrusel */
+        /* estilo basicos carrusel */
        .carousel-container {
     position: relative;
     max-width: 100%;
@@ -25,17 +25,17 @@
 
     .carousel-images img {
         width: 100%;
-        max-height: 400px; /* Ajusta la altura según sea necesario */
-        object-fit: cover; /* Hace que las imágenes se ajusten al contenedor sin distorsionarse, pero pueden recortarse */
+        max-height: 400px; 
+        object-fit: cover; 
     }
 
-    /* Nuevos estilos para imágenes fuera del carrusel */
+    /* esto era para que las imagenes del fondo no se cambiaran de res, pero creo que lo quitare al final */
     .full-width-image {
-        width: 100%; /* Asegura que las imágenes ocupen todo el ancho disponible */
-        height: auto; /* Mantiene la proporción de las imágenes */
-        object-fit: contain; /* Asegura que la imagen se ajuste sin ser recortada */
+        width: 100%; 
+        height: auto; 
+        object-fit: contain; 
         display: block;
-        margin: 20px 0; /* Espaciado para separar las imágenes */
+        margin: 20px 0; 
     }
 
     .carousel-buttons {
@@ -56,7 +56,7 @@
         font-size: 18px;
     }
 
-    /* Control de visibilidad de los botones cuando no son necesarios */
+    /* esto controla visibilidad de botones */
     .carousel-button:focus {
         outline: none;
     }
@@ -119,11 +119,6 @@
             <img src="image/tiposdetattoo.jpg" alt="Distintos tipos de tattoos" class="full-width-image">
         </div>
     </div>
-
-    <footer>
-        <div class="relative">Copyright &copy; 2025 TattoPin. Derechos Reservados</div>
-    </footer>
-
     <script>
                 let index = 0;
 
@@ -135,5 +130,21 @@
             document.querySelector('.carousel-images').style.transform = `translateX(${newTransformValue})`;
         }
     </script>
+     <footer>
+        <div class="relative">Copyright &copy; 2025 TattoPin. Derechos Reservados</div>
+
+        <div class="relative">
+            <nav>
+                <ul>
+                    <li><a href="https://www.instagram.com/" target="_blank">
+                        <img width="25px" height="25px" src="image/Redes/Blanco/Instagram.png" alt="logo"></a></li>
+                    <li><a href="https://www.x.com/" target="_blank">
+                        <img width="25px" height="25px" src="image/Redes/Blanco/Twitter.png" alt="logo"></a></li>
+                    <li><a href="https://www.facebook.com/" target="_blank">
+                    <img width="25px" height="25px" src="image/Redes/Blanco/Facebook.png" alt="logo"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
 </body>
 </html>
