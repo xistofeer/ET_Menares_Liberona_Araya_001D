@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi pequeño blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(https://giffiles.alphacoders.com/276/2766.gif); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            color: #333;
+            box-sizing: border-box; 
+        }
+        
+       
+        header {
+            background-color: #2C3E50; 
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+       
+        .cuadro {
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+            height: auto;
+            background-color: #34495E; 
+            border: 2px solid #2C3E50; 
+            margin: 20px auto;
+            padding: 20px;
+            color: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        a {
+            color: #ECF0F1;
+            text-decoration: none;
+        }
+
+        nav ul{
+            list-style: none;
+            padding: 0;
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #BDC3C7; 
+        }
+
+        p {
+            text-align: justify;
+            font-size: 16px;
+            font-family: sans-serif;
+            line-height: 1.6;
+            color: #BDC3C7; 
+            margin-bottom: 20px;
+        }
+
+
+        .cuadro img {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #2C3E50; 
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+
+        .fecha {
+            font-size: 14px;
+            color: #BDC3C7; 
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <header>
+        <h1>Mi pequeño blog</h1>
+        <p style="text-align: center;">Bienvenido a mi página de prueba</p>
+        <nav>
+            <ul>
+                <li><u><a href="https://www.google.cl/" target="_blank">Inicio</a></u></li>
+                <li><u><a href="https://www.facebook.com/" target="_blank">Facebook</a></u></li>
+                <li><u><a href="https://es.wikipedia.org/wiki/La_carretera_(novela)" target="_blank">Novela</a></u></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div class="cuadro">
+        <h2>Mi novela recomendada</h2>
+        <a href="https://es.wikipedia.org/wiki/La_carretera_(novela)">
+            <h6><u>La carretera</u></h6>
+        </a>
+        <p>
+            La carretera, novela galardonada con el premio Pulitzer 2007 y best seller
+            literario del año en Estados Unidos, transcurre en la inmensidad del
+            territorio norteamericano, un paisaje literalmente quemado por lo que
+            parece haber sido un reciente holocausto nuclear. Un padre trata de salvar a
+            su hijo emprendiendo un viaje con él, luchando contra el hambre y las inclemencias
+            del clima, mientras se enfrentan a la desesperación y al peligro. La historia es un
+            viaje de supervivencia, pero también de amor y sacrificio. Un relato profundo y conmovedor.
+        </p>
+        <a href="https://es.wikipedia.org/wiki/La_carretera_(novela)" target="_blank">
+        <img src="https://images.cdn1.buscalibre.com/fit-in/360x360/4a/ed/4aedcccd7a54a8010d12c33c3dcf5693.jpg" alt="novela"></a>
+        <div class="fecha">
+            <time datetime="2025-01-01">1 de enero de 2025</time>
+        </div>
+    </div>
+
+    <div class="cuadro">
+        <h2>Un recuerdo de la infancia</h2>
+        <p>
+            Recuerdo aquellos días de verano en los que no había preocupaciones, solo diversión y risas. Me encantaba ir a la tienda de la esquina a comprar helado y luego correr hacia el parque con mis amigos. No teníamos teléfonos inteligentes, pero teníamos algo mucho más valioso: tiempo. Tiempo para disfrutar el presente, para vivir el momento sin prisas ni preocupaciones. A veces me gustaría volver a esos días, aunque sé que no es posible. Sin embargo, esos recuerdos me siguen acompañando y me recuerdan la importancia de disfrutar de las pequeñas cosas de la vida.
+        </p>
+        <a href="https://www.youtube.com/watch?v=g-16lJTM9HA" target="_blank">
+        <img src="https://i.ytimg.com/vi/g-16lJTM9HA/maxresdefault.jpg" alt="recuerdo"></a>
+        <div class="fecha">
+            <time datetime="2025-01-12">12 de enero de 2025</time>
+        </div>
+    </div>
+
+
+    <div class="cuadro">
+        <h2>Reflexión: El paso del tiempo</h2>
+        <p>
+            A veces me detengo a pensar en lo rápido que pasa el tiempo. Parecen tan lejanos aquellos días en los que pensaba que tendría toda una vida por delante para hacer lo que quisiera. Hoy, la verdad es que las horas parecen escapar sin que me dé cuenta. Quizás, cuando éramos niños, creíamos que el tiempo era infinito, pero en realidad es el recurso más valioso que tenemos. ¿Qué haríamos si supiéramos que solo nos queda un día más?
+        </p>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP83kBHlOtA7uXBC6qwaF809BmaH4llfML2Q5S9IxcubGiedz-a8LLmy6O00bi6PP2AIA&usqp=CAU" alt="playstation">
+        <div class="fecha">
+            <time datetime="2025-01-07">7 de enero de 2025</time>
+        </div>
+    </div>
+
+
+    <div class="cuadro">
+        <h2>Historia que me parecio interesante</h2>
+        <h2 style="font-size: 20px; font-style: italic;">¿Cómo se creó Facebook?</h2>
+        <p>
+            En el año 2003, Mark Zuckerberg creó una plataforma llamada FaceMash, polémica desde el inicio. El sitio permitía a los usuarios comparar fotografías de los compañeros y compañeras de los estudiantes de Harvard, y escoger a los más atractivos. A pesar de ser un fracaso inmediato, este proyecto le dio a Zuckerberg la idea de crear algo mucho más grande: una red social que cambiaría el mundo de la comunicación para siempre.
+        </p>
+        <a href="https://www.facebook.com/" target="_blank">
+        <img src="https://store-images.s-microsoft.com/image/apps.30645.9007199266245907.cb06f1f9-9154-408e-b4ef-d19f2325893b.ac3b465e-4384-42a8-9142-901c0405e1bc" alt="fb"></a>
+        <div class="fecha">
+            <time datetime="2025-01-05">5 de enero de 2025</time>
+        </div>
+    </div>
+
+
+    <div class="cuadro">
+        <h2>La tecnología y nuestra vida cotidiana</h2>
+        <p>
+            Vivimos en una era donde la tecnología se ha integrado en cada aspecto de nuestra vida. Desde el simple acto de consultar el clima hasta las videollamadas con seres queridos, todo está al alcance de un clic. Sin embargo, a veces me pregunto si esta conexión constante nos está alejando de lo más esencial. ¿Es la tecnología una herramienta que mejora nuestras vidas o, en algunos casos, nos aleja de las cosas que realmente importan? Es un tema interesante y difícil de responder con certeza, pero no cabe duda de que vivimos una era única.
+        </p>
+        <a href="https://es.wikipedia.org/wiki/Tecnolog%C3%ADa" target="_blank">
+        <img src="https://spandanagella.com/wp-content/uploads/2024/06/vjefxquroo-930x620.jpg" alt="tecno"></a>
+        <div class="fecha">
+            <time datetime="2025-01-10">10 de enero de 2025</time>
+        </div>
+    </div>
+
+
+    <footer>
+        <p>&copy; 2025 Mi pequeño blog. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
