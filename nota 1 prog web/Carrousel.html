@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+    <style>
+        /* Estilos básicos para el carrusel */
+        .carousel-container {
+            position: relative;
+            max-width: 100%;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-images img {
+            width: 100%;
+            max-height: 400px; /* Ajusta la altura según sea necesario */
+            object-fit: cover;
+        }
+
+        .carousel-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        /* Control de visibilidad de los botones cuando no son necesarios */
+        .carousel-button:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="relative">
+            <nav>
+                <ul>
+                    <li><u><a href="menu.html" target="_blank">Inicio</a></u></li>
+                    <li><u><a href="acercade.html" target="_blank">Acerca de nosotros</a></u></li>
+                    <li><u><a href="menu.html" target="_blank"><img src="image/Logoproyecto.png" alt="logo"></a></u></li>
+                    <li><u><a href="galeria.html" target="_blank">Galeria</a></u></li>
+                    <li><u><a href="" target="_blank">Contacto</a></u></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="relative">
+        <div class="cuadro">
+            <h1>Acerca de nosotros</h1>
+
+            <!-- Carrusel de imágenes -->
+            <div class="carousel-container">
+                <div class="carousel-images">
+                    <img src="image1.jpg" alt="Imagen 1">
+                    <img src="image2.webp" alt="Imagen 2">
+                    <img src="image3.webp" alt="Imagen 3">
+                    <img src="image4.webp" alt="Imagen 4">
+                </div>
+                <div class="carousel-buttons">
+                    <button class="carousel-button prev" onclick="moveSlide(-1)">&#10094;</button>
+                    <button class="carousel-button next" onclick="moveSlide(1)">&#10095;</button>
+                </div>
+            </div>
+
+            <iframe width="320" height="240" src="https://youtu.be/gCNui9PcdmE?feature=shared"></iframe>
+            
+            <p>En CAMBIARANOMBREPAGINA, nos apasiona el arte del tatuaje y creemos que cada diseño debe ser único, 
+            al igual que la persona que lo lleva. Fundado en 2025, 
+            nuestro estudio nació con la misión de ofrecer una experiencia auténtica y profesional para todos aquellos 
+            que desean inmortalizar sus historias y sentimientos en su piel.
+            Contamos con una amplia variedad de diseños estándar, 
+            cuidadosamente creados por nuestro talentoso equipo de artistas. 
+            Además, sabemos que muchos buscan algo más personal y especial, por lo que también ofrecemos diseños personalizados, 
+            diseñados específicamente según la visión y petición de cada cliente. 
+            Ya sea que tengas una idea clara o necesites ayuda para plasmarla, estamos aquí para hacerla realidad.
+            En CAMBIARANOMBREPAGINA, no solo creamos tatuajes, sino que te ayudamos a contar tu historia a través del arte. 
+            Cada trazo tiene un propósito y cada diseño tiene un significado profundo. 
+            Nos enorgullece ofrecer un ambiente seguro, amigable y profesional para que 
+            tu experiencia sea lo más cómoda y memorable posible.
+            Gracias por elegirnos para ser parte de tu viaje artístico.
+        </p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="relative">Copyright &copy; 2025 CAMBIARANOMBREPAGINA. Derechos Reservados</div>
+    </footer>
+
+    <script>
+        let index = 0;
+
+        function moveSlide(step) {
+            const slides = document.querySelectorAll('.carousel-images img');
+            index = (index + step + slides.length) % slides.length;
+            const newTransformValue = -index * 100 + '%';
+            document.querySelector('.carousel-images').style.transform = `translateX(${newTransformValue})`;
+        }
+    </script>
+</body>
+</html>
