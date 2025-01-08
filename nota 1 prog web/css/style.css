@@ -35,6 +35,21 @@ nav ul li.headerlogo img{
     height: 100px;
     object-fit: contain;
 }
+/*puse estos 2 para probar la estetica*/
+header nav ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+/* --------------------------*/
 
 .cuadro{
     text-align: center;
@@ -83,3 +98,4 @@ a{
     color: #ffffff;
     margin-bottom: 20px;
 }
+
