@@ -9,12 +9,12 @@ body{
 }
 
 header{
-    background-color: #502c2c; 
+    background-color: #50392c; 
     color: white;
     text-align: center;
     padding: 20px;
 }
-header h1 {
+header h1{
     margin: 0;
 }
 nav ul{
@@ -23,10 +23,20 @@ nav ul{
     margin: 10px;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 15px;
 }
+nav ul li{
+    display: flex;
+    align-items: center;
+}
+nav ul li img{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
 
-.cuadro {
+.cuadro{
     text-align: center;
     width: 80%;
     max-width: 600px;
@@ -39,7 +49,7 @@ nav ul{
     position: relative;
 }
 
-header h1 {
+header h1{
     margin: 0;
 }
 
@@ -47,7 +57,7 @@ div.relative {
     position: relative;
 }
 
-footer {
+footer{
     text-align: center;
     padding: 10px;
     background-color: #1a1a1a; 
@@ -57,7 +67,7 @@ footer {
     bottom: 0;
 }
 
-p {
+p{
     text-align: justify;
     font-size: 16px;
     font-family: sans-serif;
@@ -65,7 +75,7 @@ p {
     color: #ffffff; 
     margin-bottom: 20px;
 }
-a {
+a{
     text-align: justify;
     font-size: 15px;
     font-family: sans-serif;
