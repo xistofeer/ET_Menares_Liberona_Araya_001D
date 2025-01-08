@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css"> <!-- Cargar Bootstrap -->
-
     <link rel="stylesheet" href="css/style.css">
     <title>Galería de Tatuajes</title>
     <link rel="icon" href="image/Logoproyecto.png" type="image/png">
@@ -19,13 +18,13 @@
 
         .gallery-item {
             text-align: center;
+            margin-bottom: 20px;
             overflow: hidden;
             border: 1px solid #ddd;
             border-radius: 8px;
             background-color: #fff;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
         .gallery-item img {
             width: 100%;
             height: 200px;
@@ -34,16 +33,10 @@
         }
 
         .gallery-item p {
+            text-align: center;
             margin: 10px 0;
             font-size: 16px;
             color: #333;
-        }
-
-        /* Encabezado y pie de página */
-        header {
-            background-color: #222;
-            color: white;
-            padding: 10px 20px;
         }
 
         header nav ul {
@@ -60,26 +53,23 @@
             font-weight: bold;
         }
 
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #222;
-            color: white;
-        }
+  
     </style>
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="menu.html" target="_blank">INICIO</a></li>
-                <li><a href="acercade.html" target="_blank">ACERCA DE</a></li>
-                <li><a href="menu.html" target="_blank">
-                    <img src="image/Logoproyecto.png" alt="logo"></a></li>
-                <li><a href="galeria.html" target="_blank">GALERIA</a></li>
-                <li><a href="Carrousel.html" target="_blank">NUESTRO TRABAJO</a></li>
-            </ul>
-        </nav>
+        <div class="relative">
+            <nav>
+                <ul>
+                    <li><a href="menu.html" target="_blank">INICIO</a></li>
+                    <li><a href="acercade.html" target="_blank">ACERCA DE</a></li>
+                    <li><a href="menu.html" target="_blank">
+                        <img src="image/Logoproyecto.png" alt="logo"></a></li>
+                    <li><a href="galeria.html" target="_blank">GALERIA</a></li>
+                    <li><a href="Carrousel.html" target="_blank">NUESTRO TRABAJO</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
@@ -87,36 +77,36 @@
         <div class="gallery-container">
             <!-- Elementos de la galería -->
             <div class="gallery-item">
-                <img src="image/tattoo1.jpg" alt="Tatuaje de Dragón">
-                <p>Dragón en negro</p>
+                <img src="image/tattoo1.jpg" alt="Tatuaje Araña/Serpiente">
+                <p><b> Estilo tradicional Serpiente/Araña</p></b>
             </div>
             <div class="gallery-item">
                 <img src="image/tattoo2.webp" alt="Tatuaje de Rosa">
-                <p>Rosa realista</p>
+                <p><b>Rosa Abtracta</b></p>
             </div>
             <div class="gallery-item">
                 <img src="image/tattoo3.webp" alt="Tatuaje Tribal">
-                <p>Estilo tribal geométrico</p>
+                <p><b>Estilo neopunk geométrico</b></p>
             </div>
             <div class="gallery-item">
-                <img src="image/tattoo4.jpg" alt="Tatuaje de Calavera">
-                <p>Calavera mexicana</p>
+                <img src="image/tattoo4.jpg" alt="Tatuaje mano esqueletica">
+                <p><b>Mano de Calavera en rosas</b></p>
             </div>
             <div class="gallery-item">
-                <img src="image/tattoo5.jpeg" alt="Tatuaje de Paisaje">
-                <p>Paisaje minimalista</p>
+                <img src="image/tattoo5.jpeg" alt="Tatuaje de Araña">
+                <p><b>Araña Surrealista</b></p>
             </div>
             <div class="gallery-item">
-                <img src="image/tattoo6.jpg" alt="Tatuaje de Animales">
-                <p>Lobo en estilo realista</p>
+                <img src="image/tattoo6.jpg" alt="Tatuaje neotradicional santo">
+                <p><b>Rostro sagrado neo-tradicional</b></p>
             </div>
             <div class="gallery-item">
-                <img src="image/tattoo7.jpg" alt="Tatuaje de Letras">
-                <p>Frase inspiradora</p>
+                <img src="image/tattoo7.jpg" alt="Tatuaje de araña tradicional">
+                <p><b>Araña en su tela</b></p>
             </div>
             <div class="gallery-item">
-                <img src="image/tattoo8.webp" alt="Tatuaje Abstracto">
-                <p>Arte abstracto en colores</p>
+                <img src="image/tattoo8.webp" alt="Tatuaje Abstracto reloj emo">
+                <p><b>Reloj abstracto romanticismo</b></p>
             </div>
         </div>
     </main>
