@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <title>Nuestro trabajo</title>
     <link rel="icon" href="image/Logoproyecto.png" type="image/png">
@@ -10,46 +11,55 @@
 
     <style>
         /* Estilos básicos para el carrusel */
-        .carousel-container {
-            position: relative;
-            max-width: 100%;
-            margin: 20px auto;
-            overflow: hidden;
-        }
+       .carousel-container {
+    position: relative;
+    max-width: 100%;
+    margin: 20px auto;
+    overflow: hidden;
+    }
 
-        .carousel-images {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
+    .carousel-images {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
 
-        .carousel-images img {
-            width: 100%;
-            max-height: 400px; /* Ajusta la altura según sea necesario */
-            object-fit: cover;
-        }
+    .carousel-images img {
+        width: 100%;
+        max-height: 400px; /* Ajusta la altura según sea necesario */
+        object-fit: cover; /* Hace que las imágenes se ajusten al contenedor sin distorsionarse, pero pueden recortarse */
+    }
 
-        .carousel-buttons {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-        }
+    /* Nuevos estilos para imágenes fuera del carrusel */
+    .full-width-image {
+        width: 100%; /* Asegura que las imágenes ocupen todo el ancho disponible */
+        height: auto; /* Mantiene la proporción de las imágenes */
+        object-fit: contain; /* Asegura que la imagen se ajuste sin ser recortada */
+        display: block;
+        margin: 20px 0; /* Espaciado para separar las imágenes */
+    }
 
-        .carousel-button {
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-            font-size: 18px;
-        }
+    .carousel-buttons {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+    }
 
-        /* Control de visibilidad de los botones cuando no son necesarios */
-        .carousel-button:focus {
-            outline: none;
-        }
+    .carousel-button {
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        font-size: 18px;
+    }
+
+    /* Control de visibilidad de los botones cuando no son necesarios */
+    .carousel-button:focus {
+        outline: none;
+    }
     </style>
 </head>
 <body>
@@ -57,11 +67,12 @@
         <div class="relative">
             <nav>
                 <ul>
-                    <li><u><a href="menu.html" target="_blank">Inicio</a></u></li>
-                    <li><u><a href="acercade.html" target="_blank">Acerca de nosotros</a></u></li>
-                    <li><u><a href="menu.html" target="_blank"><img src="image/Logoproyecto.png" alt="logo"></a></u></li>
-                    <li><u><a href="galeria.html" target="_blank">Galeria</a></u></li>
-                    <li><u><a href="" target="_blank">Contacto</a></u></li>
+                    <li><a href="menu.html" target="_blank">INICIO</a></li>
+                    <li><a href="acercade.html" target="_blank">ACERCA DE</a></li>
+                    <li><a href="menu.html" target="_blank">
+                        <img src="image/Logoproyecto.png" alt="logo"></a></li>
+                    <li><a href="galeria.html" target="_blank">GALERIA</a></li>
+                    <li><a href="Carrousel.html" target="_blank">NUESTRO TRABAJO</a></li>
                 </ul>
             </nav>
         </div>
@@ -97,7 +108,7 @@
                 los tatuajes se han integrado plenamente en la cultura moderna, con una enorme variedad de estilos y técnicas, siendo considerados una forma legítima de arte corporal 
                 que trasciende fronteras sociales y culturales.</p>
 
-            <img src="image/tattoostimeline.jpg" alt="Linea temporal de los tatuajes">    
+            <img src="image/tattoostimeline.jpg" alt="Linea temporal de los tatuajes" class="full-width-image">    
             <h2>Estilos y técnicas de tatuaje</h2>
             <p>Existen diversos estilos de tatuajes, cada uno con características y tradiciones propias. El estilo tradicional se caracteriza por líneas gruesas, colores sólidos y diseños 
                 simbólicos como anclas, corazones o rosas. El tribal, con raíces en culturas indígenas, usa patrones geométricos y líneas negras para representar fuerzas espirituales o identidades. 
@@ -105,20 +116,21 @@
                 En cuanto a las formas de tatuar, el uso de máquinas profesionales ha sido la norma desde el siglo XX, pero antes de ellas, se empleaban herramientas primitivas como dientes de hueso o 
                 agujas hechizas para perforar la piel. Estos métodos eran más dolorosos y rudimentarios, pero mostraban la ingenio de las culturas en la creación de tatuajes sin acceso a tecnología avanzada.                
             </p>
-            <img src="image/tiposdetattoo.jpg" alt="Distintos tipos de tattoos">
+            <img src="image/tiposdetattoo.jpg" alt="Distintos tipos de tattoos" class="full-width-image">
         </div>
     </div>
 
     <footer>
-        <div class="relative">Copyright &copy; 2025 CAMBIARANOMBREPAGINA. Derechos Reservados</div>
+        <div class="relative">Copyright &copy; 2025 TattoPin. Derechos Reservados</div>
     </footer>
 
     <script>
-        let index = 0;
+                let index = 0;
 
-        function moveSlide(step) {
+            function moveSlide(step) {
             const slides = document.querySelectorAll('.carousel-images img');
-            index = (index + step + slides.length) % slides.length;
+            index = (index + step + slides.length) % slides.length; // pa' que el índice no salga de rango
+
             const newTransformValue = -index * 100 + '%';
             document.querySelector('.carousel-images').style.transform = `translateX(${newTransformValue})`;
         }
