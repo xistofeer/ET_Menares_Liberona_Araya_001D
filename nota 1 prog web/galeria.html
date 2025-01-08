@@ -3,43 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="css/style.css">
+    <title>Galería de Tatuajes</title>
+    <link rel="icon" href="image/Logoproyecto.png" type="image/png">
+    <style>
+        /* Estilos básicos para el grid de la galería */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
 
-    <title>Document</title>
+        .gallery-item {
+            text-align: center;
+            overflow: hidden;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .gallery-item p {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* Encabezado y pie de página */
+        header {
+            background-color: #222;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        header nav ul {
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #222;
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <div class="relative">
-            <nav>
-                <ul class="headerlogo">
-                    <li><a href="menu.html" target="_blank">INICIO</a></li>
-                    <li><a href="acercade.html" target="_blank">ACERCA DE</a></li>
-                    <li><a href="menu.html" target="_blank">
-                        <img src="image/Logoproyecto.png" alt="logo"></a></li>
-                    <li><a href="galeria.html" target="_blank">GALERIA</a></li>
-                    <li><a href="Carrousel.html" target="_blank">NUESTRO TRABAJO</a></li>
-                </ul>
-            </nav>
-            </div>
+        <nav>
+            <ul>
+                <li><a href="menu.html">Inicio</a></li>
+                <li><a href="acercade.html">Acerca de Nosotros</a></li>
+                <li><a href="menu.html"><img src="image/Logoproyecto.png" alt="Logo" width="50"></a></li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
 
-
-    
-    <footer>
-        <div class="relative">Copyright &copy; 2025 TattoPin. Derechos Reservados</div>
-        <div class="relative">
-            <nav>
-                <ul>
-                    <li><a href="https://www.instagram.com/" target="_blank">
-                        <img width="25px" height="25px" src="image/Redes/Blanco/Instagram.png" alt="logo"></a></li>
-                    <li><a href="https://www.x.com/" target="_blank">
-                        <img width="25px" height="25px" src="image/Redes/Blanco/Twitter.png" alt="logo"></a></li>
-                    <li><a href="https://www.facebook.com/" target="_blank">
-                    <img width="25px" height="25px" src="image/Redes/Blanco/Facebook.png" alt="logo"></a></li>
-                </ul>
-            </nav>
+    <main>
+        <h1 style="text-align: center; margin-top: 20px;">Galería de Tatuajes</h1>
+        <div class="gallery-container">
+            <!-- Elementos de la galería -->
+            <div class="gallery-item">
+                <img src="image/tattoo1.jpg" alt="Tatuaje de Dragón">
+                <p>Dragón en negro</p>
+            </div>
+            <div class="gallery-item">
+                <img src="image/tattoo2.webp" alt="Tatuaje de Rosa">
+                <p>Rosa realista</p>
+            </div>
+            <div class="gallery-item">
+                <img src="image/tattoo3.webp" alt="Tatuaje Tribal">
+                <p>Estilo tribal geométrico</p>
+            </div>
+            <div class="gallery-item">
+                <img src="image/tattoo4.jpg" alt="Tatuaje de Calavera">
+                <p>Calavera mexicana</p>
+            </div>
+            <div class="gallery-item">
+                <img src="image/tattoo5.jpeg" alt="Tatuaje de Paisaje">
+                <p>Paisaje minimalista</p>
+            </div>
+            <div class="gallery-item">
+                <img src="image/tattoo6.jpg" alt="Tatuaje de Animales">
+                <p>Lobo en estilo realista</p>
+            </div>
+            <div class="gallery-item">
+                <img src="image/tattoo7.jpg" alt="Tatuaje de Letras">
+                <p>Frase inspiradora</p>
+            </div>
+            <div class="gallery-item">
+                <img src="image/tattoo8.webp" alt="Tatuaje Abstracto">
+                <p>Arte abstracto en colores</p>
+            </div>
         </div>
+    </main>
+
+    <footer>
+        Copyright &copy; 2025 TattoPin. Todos los derechos reservados.
     </footer>
 </body>
 </html>
