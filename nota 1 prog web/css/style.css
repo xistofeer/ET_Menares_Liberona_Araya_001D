@@ -1,3 +1,44 @@
+/*Responsive aun por terminar*/
+@media (max-width: 768px){
+    header nav ul{
+        flex-direction: column;
+        align-items: center;
+    }
+    header nav ul li img{
+        width: 80px;
+        height: 80px;
+    }
+    .cuadro{
+        width: 90%;
+        padding: 10px;
+    }
+    iframe{
+        width: 100%;
+        height: auto;
+    }
+    footer nav ul{
+        flex-direction: column;
+        height: auto;
+    }
+}
+@media (max-width: 480px){
+    nav ul{
+        gap: 5px;
+    }
+    header nav ul li a{
+        font-size: 14px;
+    }
+    .cuadro{
+        padding: 5px;
+        font-size: 14px;
+    }
+    p, a{
+        font-size: 14px;
+    }
+}
+
+/*---------------------------------------*/
+
 body{
     font-family: Arial, sans-serif;
     background-color: #303030;
