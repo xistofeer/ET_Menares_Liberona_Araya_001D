@@ -1,4 +1,3 @@
-/*Responsive aun por terminar*/
 @media (max-width: 768px){
     header nav ul{
         flex-direction: column;
