@@ -1,15 +1,21 @@
+/*nota : en internet descubri que se podia hacer mas resposive con clamp asì que modifique casi todo con clamp*/
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 @media (max-width: 768px){
     header nav ul{
         flex-direction: column;
         align-items: center;
     }
     header nav ul li img{
-        width: 80px;
-        height: 80px;
+        width: clamp(60px, 10vw, 80px);
+        height: clamp(60px, 10vw, 80px);
     }
     .cuadro{
         width: 90%;
-        padding: 10px;
+        padding: clamp(8px, 2vw, 10px);
     }
     iframe{
         width: 100%;
@@ -25,14 +31,14 @@
         gap: 5px;
     }
     header nav ul li a{
-        font-size: 14px;
+        font-size: clamp(12px, 3vw, 14px);
     }
     .cuadro{
-        padding: 5px;
-        font-size: 14px;
+        padding: clamp(5px, 2vw, 10px);
+        font-size: clamp(12px, 3vw, 14px);
     }
     p, a{
-        font-size: 14px;
+        font-size: clamp(12px, 3vw, 14px);
     }
 }
 
@@ -52,10 +58,11 @@ header{
     background-color: #50392c; 
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: clamp(15px, 3vw, 20px);
 }
 header h1{
     margin: 0;
+    font-size: clamp(20px, 5vw, 32px);
 }
 nav ul{
     list-style: none;
@@ -64,18 +71,17 @@ nav ul{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: clamp(10px, 3vw, 15px);
 }
 nav ul li{
     display: flex;
     align-items: center;
 }
 nav ul.headerlogo li img{
-    width: 100px;
-    height: 100px;
+    width: clamp(80px, 10vw, 100px);
+    height: clamp(80px, 10vw, 100px);
     object-fit: contain;
 }
-/*puse estos 2 para probar la estetica*/
 header nav ul {
     display: flex;
     justify-content: space-around;
@@ -83,13 +89,12 @@ header nav ul {
     padding: 0;
     margin: 0;
 }
-
 header nav ul li a {
     text-decoration: none;
     color: white;
     font-weight: bold;
+    font-size: clamp(14px, 2.5vw, 16px);
 }
-/* --------------------------*/
 
 .cuadro{
     text-align: center;
@@ -97,15 +102,11 @@ header nav ul li a {
     max-width: 600px;
     height: auto;
     margin: 20px auto;
-    padding: 20px;
+    padding: clamp(15px, 3vw, 20px);
     color: white;
     border-radius: 8px;
     overflow: hidden;
     position: relative;
-}
-
-header h1{
-    margin: 0;
 }
 
 div.relative{
@@ -114,7 +115,7 @@ div.relative{
 
 footer{
     text-align: center;
-    padding: 10px;
+    padding: clamp(8px, 2vw, 10px);
     background-color: #1a1a1a; 
     color: white;
     position: relative;
@@ -124,7 +125,7 @@ footer{
 
 p{
     text-align: justify;
-    font-size: 16px;
+    font-size: clamp(14px, 3vw, 16px);
     font-family: sans-serif;
     line-height: 1.6;
     color: #ffffff; 
@@ -133,16 +134,14 @@ p{
 a{
     text-decoration: none;
     text-align: justify;
-    font-size: 15px;
+    font-size: clamp(13px, 2.5vw, 15px);
     font-family: sans-serif;
     color: #ffffff;
     margin-bottom: 20px;
 }
 
-
 /*De aqui para abajo corresponde al sitio carrusel ------------------------------------------------*/
- /* estilo basicos carrusel */
- .carousel-container {
+.carousel-container {
     position: relative;
     max-width: 100%;
     margin: 20px auto;
@@ -160,13 +159,12 @@ a{
     object-fit: cover;
 }
 
-/* esto era para que las imagenes del fondo no se cambiaran de res, quizas lo cambie luego */
 .full-width-image {
-width: 100%; 
-height: auto; 
-object-fit: contain; 
-display: block;
-margin: 20px 0; 
+    width: 100%; 
+    height: auto; 
+    object-fit: contain; 
+    display: block;
+    margin: 20px 0; 
 }
 
 .carousel-container {
@@ -175,6 +173,7 @@ margin: 20px 0;
     width: 100%;
     max-width: 800px;
     margin: auto;
+    border: 1px solid #ddd;
 }
 .carousel-images {
     display: flex;
@@ -196,32 +195,26 @@ margin: 20px 0;
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
     border: none;
-    padding: 10px;
+    padding: clamp(8px, 2vw, 10px);
     cursor: pointer;
-    font-size: 18px;
+    font-size: clamp(14px, 2.5vw, 18px);
     border-radius: 50%;
 }
 .carousel-button:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
-/* Aqui termina el sitio carrusel --------------------------------------------------------------------------------------/*
 
-
-
-
-/*Aqui esta el estilo del sitio galeria$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$/*
-
- /* Estilos básicos para el grid de la galería */
- .gallery-container {
+/*Aqui esta el estilo del sitio galeria*/
+.gallery-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 20px;
+    gap: clamp(10px, 3vw, 20px);
+    padding: clamp(15px, 3vw, 20px);
 }
 
 .gallery-item {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: clamp(15px, 3vw, 20px);
     overflow: hidden;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -233,12 +226,13 @@ margin: 20px 0;
     height: 200px;
     object-fit: cover;
     border-bottom: 1px solid #ddd;
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
 }
 
 .gallery-item p {
     text-align: center;
     margin: 10px 0;
-    font-size: 16px;
+    font-size: clamp(14px, 3vw, 16px);
     color: #333;
 }
-/* Aqui termina el galeria $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$/*
