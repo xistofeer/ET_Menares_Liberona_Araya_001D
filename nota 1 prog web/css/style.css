@@ -129,27 +129,40 @@ display: block;
 margin: 20px 0; 
 }
 
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+}
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.carousel-images img {
+    width: 100%;
+    flex-shrink: 0;
+}
 .carousel-buttons {
-position: absolute;
-top: 50%;
-width: 100%;
-display: flex;
-justify-content: space-between;
-transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
 }
-
 .carousel-button {
-background-color: rgba(0, 0, 0, 0.5);
-color: white;
-padding: 10px;
-border: none;
-cursor: pointer;
-font-size: 18px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 50%;
 }
-
-/* esto controla visibilidad de botones */
-.carousel-button:focus {
-outline: none;
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 /* Aqui termina el sitio carrusel --------------------------------------------------------------------------------------/*
 
