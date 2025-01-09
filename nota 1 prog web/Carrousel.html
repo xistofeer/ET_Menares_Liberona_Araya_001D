@@ -72,15 +72,20 @@
 
     <!-- ni idea de como funciona este script me lo robe de internet-->
     <script>
-                let index = 0;
+        let index = 0;
 
-            function moveSlide(step) {
+        function moveSlide(step) {
             const slides = document.querySelectorAll('.carousel-images img');
-            index = (index + step + slides.length) % slides.length; // pa' que el índice no salga de rango
+            const carousel = document.querySelector('.carousel-images');
+            index = (index + step + slides.length) % slides.length;
 
+            // Ajustar la posición
             const newTransformValue = -index * 100 + '%';
-            document.querySelector('.carousel-images').style.transform = `translateX(${newTransformValue})`;
+            carousel.style.transform = `translateX(${newTransformValue})`;
         }
+
+        // Auto-play
+        setInterval(() => moveSlide(1), 5000);
     </script>
      <footer>
         <div class="relative">Copyright &copy; 2025 TattoPin. Derechos Reservados</div>
@@ -91,7 +96,7 @@
                     <li><a href="https://www.instagram.com/" target="_blank">
                         <img width="25px" height="25px" src="image/Redes/Blanco/Instagram.png" alt="logo"></a></li>
                     <li><a href="https://www.x.com/" target="_blank">
-                        <img width="35px" height="35px" src="image/Redes/Blanco/Twitter.png" alt="logo"></a></li>
+                        <img width="25px" height="25px" src="image/Redes/Blanco/Twitter.png" alt="logo"></a></li>
                     <li><a href="https://www.facebook.com/" target="_blank">
                     <img width="25px" height="25px" src="image/Redes/Blanco/Facebook.png" alt="logo"></a></li>
                 </ul>
