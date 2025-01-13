@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>TattoPin - Inicio</title>
+    <link rel="icon" href="image/Logoproyecto.png" type="image/png">
+</head>
+<body>
+    <header>
+        <div class="relative">
+            <nav>
+                <ul class="headerlogo">
+                    <li><a href="menu.html" target="_self">INICIO</a></li>
+                    <li><a href="acercade.html" target="_self">ACERCA DE</a></li>
+                    <li><a href="menu.html" target="_self">
+                        <img src="image/Logoproyecto.png" alt="logo"></a></li>
+                    <li><a href="galeria.html" target="_self">GALERIA</a></li>
+                    <li><a href="Carrousel.html" target="_self">NUESTRO TRABAJO</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- mover luego al css-->
+<style>
+   form textarea {
+    color: white !important; /* Cambia el color del texto dentro del formulario a blanco */
+    }
+
+    form input 
+    form select, 
+    form textarea {
+        background-color: transparent; /* Fondo transparente para que contraste con el texto blanco */
+        border: 1px solid white; /* Bordes blancos para mejor visibilidad */
+    }
+
+    form label {
+        color: white; /* Asegúrate de que las etiquetas también sean blancas */
+    }
+</style>
+    <!-- mover luego al css-->
+     
+    <main>
+        <section class="container mt-5">
+            <h1 class="text-center mb-4" style="color: white;">Registro</h1>
+            <form>
+                <!--  Nombre -->
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre Completo</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre completo" required>
+                </div>
+    
+                <!-- Correo  -->
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email" placeholder="correo@ejemplo.com" required>
+                </div>
+    
+                <!-- contraseña -->
+                <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="password" placeholder="Crea una contraseña segura" required>
+                </div>
+    
+                <!-- confirmar Contraseña -->
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">Confirmar Contraseña</label>
+                    <input type="password" class="form-control" id="confirmPassword" placeholder="Confirma tu contraseña" required>
+                </div>
+    
+                <!-- genero -->
+                <div class="mb-3">
+                    <label class="form-label">Género</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="genero" id="masculino" value="Masculino">
+                        <label class="form-check-label" for="masculino">Masculino</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="genero" id="femenino" value="Femenino">
+                        <label class="form-check-label" for="femenino">Femenino</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="genero" id="otro" value="Otro">
+                        <label class="form-check-label" for="otro">Otro</label>
+                    </div>
+                </div>
+    
+                <!-- Checkbox terminos y condiciones -->
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="terminos" required>
+                    <label class="form-check-label" for="terminos">
+                        Acepto los <a href="#" target="_blank">Términos y Condiciones</a>
+                    </label>
+                </div>
+    
+                <!-- Btm Registro -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="relative">Copyright &copy; 2025 TattoPin. Derechos Reservados</div>
+
+        <div class="relative">
+            <nav>
+                <ul>
+                    <li><a href="https://www.instagram.com/" target="_blank">
+                        <img width="25px" height="25px" src="image/Redes/Blanco/Instagram.png" alt="logo"></a></li>
+                    <li><a href="https://www.x.com/" target="_blank">
+                        <img width="35px" height="35px" src="image/Redes/Blanco/Twitter.png" alt="logo"></a></li>
+                    <li><a href="https://www.facebook.com/" target="_blank">
+                    <img width="25px" height="25px" src="image/Redes/Blanco/Facebook.png" alt="logo"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>
