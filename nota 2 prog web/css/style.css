@@ -55,7 +55,8 @@ body{
 }
 
 header{
-    background-color: #50392c; 
+    /*background-color: #50392c;*/
+    background-color: #000000;
     color: white;
     text-align: center;
     padding: clamp(15px, 3vw, 20px);
