@@ -236,3 +236,21 @@ a{
     font-size: clamp(14px, 3vw, 16px);
     color: #333;
 }
+
+
+/*Aqui esta el estilo de los sitios Formulario-Login*/
+
+form textarea {
+    color: white !important; /* Cambia el color del texto dentro del formulario a blanco */
+    }
+
+    form input 
+    form select, 
+    form textarea {
+        background-color: transparent; /* Fondo transparente para que contraste con el texto blanco */
+        border: 1px solid white; /* Bordes blancos para mejor visibilidad */
+    }
+
+    form label {
+        color: white; /* Asegúrate de que las etiquetas también sean blancas */
+    }
