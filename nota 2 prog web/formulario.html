@@ -2,12 +2,14 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TattoPin - Registro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <title>TattoPin - Registro</title>
+    <link rel="stylesheet" href="css/estilos.css">
     <link rel="icon" href="image/Logoproyecto.png" type="image/png">
-    
 </head>
 <body>
     <header>
@@ -20,76 +22,93 @@
                         <img src="image/Logoproyecto.png" alt="logo"></a></li>
                     <li><a href="galeria.html" target="_self">GALERIA</a></li>
                     <li><a href="Carrousel.html" target="_self">NUESTRO TRABAJO</a></li>
-                    <!-- Botón de Ingreso -->
-                    <div class="dropdown show">
-                        <a><img src="image/icons/lock2.png" style="width: 20px;"> CUENTA</a>
-                        <li class="dropdown-content">
-                            <a href="login.html">Iniciar Sesion</a>
-                            <a href="formulario.html">Registrarse</a>
-                        </li>
-                    </div>
+                    <li>
+                        <a href="login.html" class="btn btn-light btn-sm" role="button" style="font-weight: bold;">Ingreso</a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-     
     <main>
         <section class="container mt-5">
-            <h1 class="text-center mb-4" style="color: white;">Registro</h1>
-            <form>
-                <!--  Nombre -->
-                <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre Completo</label>
-                    <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre completo" required>
-                </div>
-    
-                <!-- Correo  -->
-                <div class="mb-3">
-                    <label for="email" class="form-label">Correo Electrónico</label>
-                    <input type="email" class="form-control" id="email" placeholder="correo@ejemplo.com" required>
-                </div>
-    
-                <!-- contraseña -->
-                <div class="mb-3">
-                    <label for="password" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="password" placeholder="Crea una contraseña segura" required>
-                </div>
-    
-                <!-- confirmar Contraseña -->
-                <div class="mb-3">
-                    <label for="confirmPassword" class="form-label">Confirmar Contraseña</label>
-                    <input type="password" class="form-control" id="confirmPassword" placeholder="Confirma tu contraseña" required>
-                </div>
-    
-                <!-- genero -->
-                <div class="mb-3">
-                    <label class="form-label">Género</label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="genero" id="masculino" value="Masculino">
-                        <label class="form-check-label" for="masculino">Masculino</label>
+            <h1 class="text-center mb-4" style="color: white;">Registro Usuario</h1>
+            <form action="" class="formulario" id="formulario">
+                <!-- Grupo: Usuario -->
+                <div class="formulario__grupo" id="grupo__usuario">
+                    <label for="usuario" class="formulario__label">Usuario</label>
+                    <div class="formulario__grupo-input">
+                        <input type="text" class="formulario__input" name="usuario" id="usuario" placeholder="Cachupin123">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="genero" id="femenino" value="Femenino">
-                        <label class="form-check-label" for="femenino">Femenino</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="genero" id="otro" value="Otro">
-                        <label class="form-check-label" for="otro">Otro</label>
-                    </div>
+                    <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 caracteres y solo puede contener numeros, letras y guion bajo.</p>
                 </div>
-    
-                <!-- Checkbox terminos y condiciones -->
-                <div class="form-check mb-3">
-                    <input class="form-check-input" type="checkbox" id="terminos" required>
-                    <label class="form-check-label" for="terminos">
-                        Acepto los <a href="#" target="_blank">Términos y Condiciones</a>
+
+                <!-- Grupo: Nombre -->
+                <div class="formulario__grupo" id="grupo__nombre">
+                    <label for="nombre" class="formulario__label">Nombre</label>
+                    <div class="formulario__grupo-input">
+                        <input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Cachupin Perez">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">El nombre solo puede contener letras y espacios.</p>
+                </div>
+
+                <!-- Grupo: Contraseña -->
+                <div class="formulario__grupo" id="grupo__password">
+                    <label for="password" class="formulario__label">Contraseña</label>
+                    <div class="formulario__grupo-input">
+                        <input type="password" class="formulario__input" name="password" id="password">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">La contraseña debe ser de 4 a 12 caracteres.</p>
+                </div>
+
+                <!-- Grupo: Contraseña 2 -->
+                <div class="formulario__grupo" id="grupo__password2">
+                    <label for="password2" class="formulario__label">Repetir Contraseña</label>
+                    <div class="formulario__grupo-input">
+                        <input type="password" class="formulario__input" name="password2" id="password2">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">Ambas contraseñas deben ser iguales.</p>
+                </div>
+
+                <!-- Grupo: Correo Electrónico -->
+                <div class="formulario__grupo" id="grupo__correo">
+                    <label for="correo" class="formulario__label">Correo Electrónico</label>
+                    <div class="formulario__grupo-input">
+                        <input type="email" class="formulario__input" name="correo" id="correo" placeholder="xxx@xxx.com">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
+                </div>
+
+                <!-- Grupo: Teléfono -->
+                <div class="formulario__grupo" id="grupo__telefono">
+                    <label for="telefono" class="formulario__label">Teléfono</label>
+                    <div class="formulario__grupo-input">
+                        <input type="text" class="formulario__input" name="telefono" id="telefono" placeholder="4491234567">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">El teléfono solo puede contener números y el máximo son 14 dígitos.</p>
+                </div>
+
+                <!-- Grupo: Términos y Condiciones -->
+                <div class="formulario__grupo" id="grupo__terminos">
+                    <label class="formulario__label">
+                        <input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos">
+                        Acepto los Términos y Condiciones
                     </label>
                 </div>
-    
-                <!-- Btm Registro -->
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary">Registrar</button>
+
+                <div class="formulario__mensaje" id="formulario__mensaje">
+                    <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente.</p>
+                </div>
+
+                <div class="formulario__grupo formulario__grupo-btn-enviar">
+                    <button type="submit" class="formulario__btn">Enviar</button>
+                    <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
                 </div>
             </form>
         </section>
@@ -97,7 +116,6 @@
 
     <footer>
         <div class="relative">Copyright &copy; 2025 TattoPin. Derechos Reservados</div>
-
         <div class="relative">
             <nav>
                 <ul>
@@ -111,5 +129,7 @@
             </nav>
         </div>
     </footer>
+
+    <script src="js/formulario.js"></script>
 </body>
 </html>
