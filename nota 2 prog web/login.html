@@ -34,17 +34,21 @@
     <main>
         <section class="container mt-5">
             <h1 class="text-center mb-4" style="color: white;">Iniciar Sesíon</h1>
-            <form>
+            <form id="loginForm">
                 <!-- Correo -->
                 <div class="mb-3">
                     <label for="email" class="form-label">Correo Electrónico</label>
                     <input type="email" class="form-control" id="email" placeholder="correo@ejemplo.com" required>
+                    <div class="invalid-feedback">Por favor, introduce un correo válido.</div>
                 </div>
 
                 <!-- Contraseña -->
                 <div class="mb-3">
                     <label for="password" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña" required>
+                    <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña" required minlength="6" maxlength="20">
+                    <div class="invalid-feedback">
+                        La contraseña debe tener entre 6 y 20 caracteres.
+                    </div>
                 </div>
 
                 <!-- Recuperar Contraseña -->
@@ -59,16 +63,14 @@
             </form>
         </section>
 
-         <!-- Opción de registro -->
-         <div class="text-center">
+        <!-- Opción de registro -->
+        <div class="text-center">
             <p style="color: white;">
                 ¿No tienes usuario? 
                 <a href="formulario.html" class="link-light" style="font-weight: bold;">Regístrate aquí</a>
             </p>
         </div>
-    </form>
-</section>
-</main>
+    </main>
 
     <footer>
         <div class="relative">Copyright &copy; 2025 TattoPin. Derechos Reservados</div>
