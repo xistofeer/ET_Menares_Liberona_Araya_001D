@@ -7,6 +7,51 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Galería de Tatuajes</title>
     <link rel="icon" href="image/Logoproyecto.png" type="image/png">
+    <style>
+    /* Estilos específicos para la galería dinámica */
+.dynamic-gallery-container {
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.dynamic-images-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.dynamic-images-grid img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dynamic-images-grid img:hover {
+    transform: scale(1.05);
+}
+
+.dynamic-load-button {
+    margin-top: 20px;
+    background-color: #0075FF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dynamic-load-button:hover {
+    background-color: #0056b3;
+}
+
+    </style>
 </head>
 <body>
     <header>
@@ -106,9 +151,21 @@
                 <p><b>Reloj abstracto romanticismo</b></p>
             </div>
         </div>
+
+
+        <section id="tattoo-gallery" class="dynamic-gallery-container">
+            <h2>¿ Buscas inspiracion para tu nuevo tattoo ?</h2>
+            <div id="images-container" class="dynamic-images-grid">
+                <!-- Las imágenes se insertarán aquí dinámicamente -->
+            </div>
+            <button id="load-images" class="dynamic-load-button">Inspirame</button>
+        </section>
     </main>
+
     <footer>
         <div class="relative">Copyright &copy; 2025 TattoPin. Derechos Reservados</div>
+
+        <script src="js/buscador.js"></script>
 
         <div class="relative">
             <nav>
