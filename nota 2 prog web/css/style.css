@@ -198,6 +198,7 @@ a{
 
 
 /*De aqui para abajo corresponde al sitio carrusel ------------------------------------------------*/
+
 .carousel-container {
     position: relative;
     max-width: 100%;
@@ -224,6 +225,22 @@ a{
     margin: 20px 0; 
 }
 
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    border: 1px solid #ddd;
+}
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.carousel-images img {
+    width: 100%;
+    flex-shrink: 0;
+}
 .carousel-buttons {
     position: absolute;
     top: 50%;
@@ -244,6 +261,7 @@ a{
 .carousel-button:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
+
 
 /*Aqui esta el estilo del sitio galeria*/
 
