@@ -249,19 +249,29 @@ a{
     justify-content: space-between;
     transform: translateY(-50%);
 }
+
 .carousel-button {
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
     border: none;
-    padding: clamp(8px, 2vw, 10px);
+    padding: clamp(5px, 2vw, 10px);
     cursor: pointer;
-    font-size: clamp(14px, 2.5vw, 18px);
-    border-radius: 50%;
+    font-size: clamp(5px, 2.5vw, 16px); 
+    transition: all 0.3s ease;
 }
+
 .carousel-button:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
-
+@media (max-width: 480px) {
+    .carousel-button {
+        padding: 1px; 
+        font-size: 20px; 
+        width: 40px; 
+        height: 40px; 
+        line-height: 40px; 
+    }
+}
 
 /*Aqui esta el estilo del sitio galeria*/
 
