@@ -326,6 +326,8 @@ a{
 
 .dynamic-images-grid img {
     width: 100%;
+    height: 200px; /* Altura fija para uniformar las imágenes */
+    object-fit: cover; /* Asegura que las imágenes se recorten para llenar el espacio */
     border-radius: 10px;
     transition: transform 0.3s ease;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
