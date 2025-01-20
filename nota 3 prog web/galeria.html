@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css"> <!-- aquie se Carga el Bootstrap -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>Galería de Tatuajes</title>
+    <link rel="icon" href="image/Logoproyecto.png" type="image/png">
+    <style>
+    /* Estilos específicos para la galería dinámica */
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="relative">
+            <nav>
+                <ul class="headerlogo">
+                    <li><a href="menu.html" target="_self">INICIO</a></li>
+                    <li><a href="acercade.html" target="_self">ACERCA DE</a></li>
+                    <li><a href="menu.html" target="_self">
+                        <img src="image/Logoproyecto.png" alt="logo"></a></li>
+                    <li><a href="galeria.html" target="_self">GALERIA</a></li>
+                    <li><a href="Carrousel.html" target="_self">NUESTRO TRABAJO</a></li>
+                    
+                    <div class="dropdown show">
+                        <a><img src="image/icons/lock2.png" style="width: 20px;"> CUENTA</a>
+                        <a style="color: #8d8d8d;"> ▼</a>
+                        <li class="dropdown-content">
+                            <a href="login.html">Iniciar Sesion</a>
+                            <a href="formulario.html">Registrarse</a>
+                        </li>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h1 style="color: white; text-align: center; margin-top: 20px;">Galería de Tatuajes</h1>
+        <div class="gallery-container">
+            <!-- Elementos de la galeria -->
+            <div class="gallery-item">
+                <img src="image/tattoo12.jpg" alt="Tatuaje geometrico">
+                <p><b> Estilo patrones geometricos</p></b>
+            </div>
+            <div class="gallery-item">
+                <img src="image/tattoo13.jpg" alt="Tatuaje Anime">
+                <p><b> Estilo tradicional One piece</p></b>
+            </div>
+            <div class="gallery-item">
+                <img src="image/tattoo14.webp" alt="Tatuaje Anime">
+                <p><b> Estilo tradicional Kimetsu</p></b>
+            </div>
+            <div class="gallery-item">
+                <img src="image/tattoo15.jpg" alt="Tatuaje Anime">
+                <p><b> Estilo tradicional Naruto</p></b>
+            </div>
+            <div class="gallery-item">
+                <img src="image/tattoo16.jfif" alt="Tatuaje Neotradicional">
+                <p><b> Estilo neotradicional zorro</p></b>
+            </div>
+            <div class="gallery-item">
+                <img src="image/tattoo17.jpg" alt="Tatuaje Neotradicional">
+                <p><b> Estilo neotradicional ojo </p></b>
+            </div>
+            <div class="gallery-item">
+                <img src="image/tattoo18.jfif" alt="Tatuaje geometrico">
+                <p><b> Estilo geometrico patrones </p></b>
+            </div>
+            <div class="gallery-item">
+                <img src="image/tattoo19.webp" alt="Tatuaje geometrico">
+                <p><b> Estilo geometrico mandala</p></b>
+            </div>
+            <div class="gallery-item">
+                <img src="image/tattoo20.jpg" alt="Tatuaje Semirealista">
+                <p><b> Estilo semirealista el guason</p></b>
+            </div>
+            <div class="gallery-item">
+                <img src="image/tattoo1.jpg" alt="Tatuaje Araña/Serpiente">
+                <p><b> Estilo tradicional Serpiente/Araña</p></b>
+            </div>
+            <div class="gallery-item">
+                <img src="image/tattoo2.webp" alt="Tatuaje de Rosa">
+                <p><b>Rosa Abtracta</b></p>
+            </div>
+            <div class="gallery-item">
+                <img src="image/tattoo3.webp" alt="Tatuaje Tribal">
+                <p><b>Estilo neopunk geométrico</b></p>
+            </div>
+            <div class="gallery-item">
+                <img src="image/tattoo4.jpg" alt="Tatuaje mano esqueletica">
+                <p><b>Mano de Calavera en rosas</b></p>
+            </div>
+            <div class="gallery-item">
+                <img src="image/tattoo5.jpeg" alt="Tatuaje de Araña">
+                <p><b>Araña Surrealista</b></p>
+            </div>
+            <div class="gallery-item">
+                <img src="image/tattoo6.jpg" alt="Tatuaje neotradicional santo">
+                <p><b>Rostro sagrado neo-tradicional</b></p>
+            </div>
+            <div class="gallery-item">
+                <img src="image/tattoo7.jpg" alt="Tatuaje de araña tradicional">
+                <p><b>Araña en su tela</b></p>
+            </div>
+            <div class="gallery-item">
+                <img src="image/tattoo8.webp" alt="Tatuaje Abstracto reloj emo">
+                <p><b>Reloj abstracto romanticismo</b></p>
+            </div>
+        </div>
+
+
+        <section id="tattoo-gallery" class="dynamic-gallery-container">
+            <h2>¿Buscas inspiracion para tu nuevo tattoo?</h2>
+            <div id="images-container" class="dynamic-images-grid">
+                <!-- Las imágenes se insertarán aquí dinámicamente -->
+            </div>
+            <button id="load-images" class="dynamic-load-button">Inspirame</button>
+        </section>
+    </main>
+
+    <footer>
+        <div class="relative">Copyright &copy; 2025 TattoPin. Derechos Reservados</div>
+
+        <script src="js/buscador.js"></script>
+
+        <div class="relative">
+            <nav>
+                <ul>
+                    <li><a href="https://www.instagram.com/" target="_blank">
+                        <img width="25px" height="25px" src="image/Redes/Blanco/Instagram.png" alt="logo"></a></li>
+                    <li><a href="https://www.x.com/" target="_blank">
+                        <img width="35px" height="35px" src="image/Redes/Blanco/Twitter.png" alt="logo"></a></li>
+                    <li><a href="https://www.facebook.com/" target="_blank">
+                    <img width="25px" height="25px" src="image/Redes/Blanco/Facebook.png" alt="logo"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>
