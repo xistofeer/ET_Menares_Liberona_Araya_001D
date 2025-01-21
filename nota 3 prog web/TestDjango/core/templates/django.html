@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <title>Creando Tatuaje</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+
+    <script>
+        $(function() {
+            $("#form_tattoo").validate({
+                rules: {
+                    title: "required",
+                    description: "required",
+                    image_url: {
+                        required: true,
+                        url: true
+                    },
+                    style: "required",
+                    artist: "required"
+                },   
+                messages: {
+                    title: {
+                        required: 'Por favor, ingresa el título del tatuaje',
+                    },
+                    description: {
+                        required: 'Por favor, ingresa una descripción',
+                    },
+                    image_url: {
+                        required: 'Por favor, ingresa la URL de la imagen',
+                        url: 'La URL no es válida'
+                    },
+                    style: {
+                        required: 'Por favor, ingresa el estilo del tatuaje',
+                    },
+                    artist: {
+                        required: 'Por favor, selecciona un artista',
+                    }
+                } // messages
+            });
+        }); // function
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>Crear Nuevo Tatuaje</h1>
+        </div>
+
+        <div class="row">
+            <form method="POST" action="{% url 'django' %}" id="form_tattoo">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_title">{{ tattoo_form.title.label }}</label>
+                    {{ tattoo_form.title }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_description">{{ tattoo_form.description.label }}</label>
+                    {{ tattoo_form.description }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_image_url">{{ tattoo_form.image_url.label }}</label>
+                    {{ tattoo_form.image_url }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_style">{{ tattoo_form.style.label }}</label>
+                    {{ tattoo_form.style }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_artist">{{ tattoo_form.artist.label }}</label>
+                    {{ tattoo_form.artist }}
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-danger" id="enviar" value="Enviar">
+                    <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
