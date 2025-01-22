@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import menu, acercade, carrousel, formulario, galeria, login_view, django_view
+from .views import menu, acercade, carrousel, formulario, galeria, login_view, django_view, eliminar, modificar
 
 urlpatterns = [
     path('', menu, name='menu'),          # Ruta para la vista del menú (Página principal)
@@ -9,5 +9,7 @@ urlpatterns = [
     path('galeria/', galeria, name='galeria'),  # Ruta para la galería
     path('login/', login_view, name='login'),  # Ruta para el login
     path('django/', django_view, name='django' ),
-    #path('crear-tatuaje/', django_view, name='crear_tatuaje'),
+    path('modificar/', modificar, name='modificar' ),
+    path('eliminar/<id>', eliminar, name='eliminar' ),
+    path('modificar/<int:id>/', modificar, name='modificar' )
 ]

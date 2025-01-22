@@ -15,6 +15,7 @@ class Artist(models.Model):
 
 # Tabla para tatuajes
 class Tattoo(models.Model):
+    id = models.CharField(max_length=4,primary_key=True,verbose_name="ID del tatuaje")
     title = models.CharField(max_length=100, verbose_name="Título del tatuaje")
     description = models.TextField(blank=True, verbose_name="Descripción")
     image_url = models.URLField(verbose_name="URL de la imagen")
