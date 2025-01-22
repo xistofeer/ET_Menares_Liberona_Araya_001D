@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Tatuaje</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<style>
+    label.error {
+        color: red;
+        font-size: 0.8em;
+        width: 200px;
+    }
+</style>
+<script>
+    $(function() {
+        $("#formulario_modificar").validate({
+            rules: {
+                title: "required",
+                description: "required",
+                image_url: {
+                    required: true,
+                    url: true
+                },
+                style: "required",
+                artist: "required"
+            },
+            messages: {
+                title: {
+                    required: 'Por favor, ingrese el título del tatuaje.'
+                },
+                description: {
+                    required: 'Por favor, ingrese una descripción del tatuaje.'
+                },
+                image_url: {
+                    required: 'Por favor, ingrese la URL de la imagen.',
+                    url: 'La URL no es válida.'
+                },
+                style: {
+                    required: 'Por favor, ingrese el estilo del tatuaje.'
+                },
+                artist: {
+                    required: 'Por favor, seleccione un artista.'
+                }
+            }
+        });
+    });
+</script>
+<body>
+    <div class="container">
+        <h2>Modificar Tatuaje</h2>
+        <form method="POST" id="formulario_modificar">
+            {% csrf_token %}
+            <div class="row">
+                <label for="id_title">
+                    {{ form.title.label }}
+                </label>
+                {{ form.title }}
+            </div>
+            
+            <div class="row">
+                <label for="id_description">
+                    {{ form.description.label }}
+                </label>
+                {{ form.description }}
+            </div>
+            
+            <div class="row">
+                <label for="id_image_url">
+                    {{ form.image_url.label }}
+                </label>
+                {{ form.image_url }}
+            </div>
+            
+            <div class="row">
+                <label for="id_style">
+                    {{ form.style.label }}
+                </label>
+                {{ form.style }}
+            </div>
+            
+            <div class="row">
+                <label for="id_artist">
+                    {{ form.artist.label }}
+                </label>
+                {{ form.artist }}
+            </div>
+            
+            <br>
+            <input type="submit" class="btn btn-primary" value="Modificar">
+            <a href="{% url 'galeria' %}" class="btn btn-success">Volver a la Galería</a>
+        </form>
+    </div>
+</body>
+</html>

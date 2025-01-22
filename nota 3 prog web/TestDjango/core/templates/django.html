@@ -13,16 +13,23 @@
         $(function() {
             $("#form_tattoo").validate({
                 rules: {
+                    id: {
+                        required: true,
+                        maxlength: 4
+                    },
                     title: "required",
                     description: "required",
                     image_url: {
                         required: true,
                         url: true
                     },
-                    style: "required",
-                    artist: "required"
-                },   
+                    style: "required"
+                },
                 messages: {
+                    id: {
+                        required: 'Por favor, ingresa el ID del tatuaje',
+                        maxlength: 'El ID debe tener como máximo 4 caracteres'
+                    },
                     title: {
                         required: 'Por favor, ingresa el título del tatuaje',
                     },
@@ -35,13 +42,10 @@
                     },
                     style: {
                         required: 'Por favor, ingresa el estilo del tatuaje',
-                    },
-                    artist: {
-                        required: 'Por favor, selecciona un artista',
                     }
-                } // messages
+                }
             });
-        }); // function
+        });
     </script>
 </head>
 <body>
@@ -53,6 +57,18 @@
         <div class="row">
             <form method="POST" action="{% url 'django' %}" id="form_tattoo">
                 {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_id">ID del Tatuaje</label>
+                    <input 
+                        type="text" 
+                        id="id_id" 
+                        name="id" 
+                        class="form-control" 
+                        placeholder="Ingrese un ID de 4 caracteres" 
+                        maxlength="4"
+                    >
+                </div>
+
                 <div class="form-group">
                     <label for="id_title">{{ tattoo_form.title.label }}</label>
                     {{ tattoo_form.title }}
@@ -71,11 +87,6 @@
                 <div class="form-group">
                     <label for="id_style">{{ tattoo_form.style.label }}</label>
                     {{ tattoo_form.style }}
-                </div>
-
-                <div class="form-group">
-                    <label for="id_artist">{{ tattoo_form.artist.label }}</label>
-                    {{ tattoo_form.artist }}
                 </div>
 
                 <div class="form-group">
