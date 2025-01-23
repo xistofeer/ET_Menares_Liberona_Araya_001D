@@ -1,4 +1,4 @@
-Entrega de la segunda evaluacion de programacion web, sitio de tatuajes con registro y login, varias funciones js, optimizaciones responsive y con API de busqueda de imagenes.
+Entrega de la evaluacion final de programacion web, sitio de tatuajes con registro y login, varias funciones js, optimizaciones responsive, API de busqueda de imagenes, montando en django, con carrito de compras y funcionalidades completas.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/e47020d8-f29b-4601-a207-1f30f8ab4a59"/>
