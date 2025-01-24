@@ -40,15 +40,15 @@
     <main>
         <h1 style="color: white; text-align: center; margin-top: 20px;">TIENDA</h1>
         <a href="{%url 'listado'%}" class="btn btn-success">ADMINISTRAR CONTENIDO</a>
-        <div style="padding: 20px; width: 90%; margin: 20px auto; display: flex;" class="gallery-container">
-          {% for tat in datos %}
+        <div style="padding: 20px; display: flex;" class="gallery-container">
+          {% for tattoo in datos %}
           <div class="gallery-item">
-            <img src="{{ tat.image_url }}" alt="{{ tat.title }}">
+            <img src="{{ tattoo.imagen.url }}" >
             <div class="descripton">
-                <p><b>{{ tat.title }}</b></p>
-                <p>{{tat.description}}</p>
-                <p>Artista: {{tat.artist}}</p>
-                <h10>{{tat.id}}</h10>
+                <p><b>{{ tattoo.titulo }}</b></p>
+                <p>{{tattoo.description}}</p>
+                <p>{{tattoo.tipo}}</p>
+                <i><small>{{tattoo.codigo}}</small></i>
             </div>
           </div>
           {% endfor %}
