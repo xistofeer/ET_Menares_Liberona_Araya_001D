@@ -20,6 +20,10 @@ def galeria(request):
 def login_view(request):
     return render(request, 'login.html')
 
+def tienda(request):
+    tattoos=Tattoo.objects.all()
+    return render(request, 'tienda.html', context={'datos':tattoos})
+
 
 def django_view(request):
     if request.method == 'POST':
@@ -38,7 +42,7 @@ def form_tattoo(request):
         tattooForm = TattooForm(request.POST, request.FILES)
         if tattooForm.is_valid():
             tattooForm.save()
-            return redirect('home')
+            return redirect('listado')
     else:
         tattooForm= TattooForm()
     return render(request, 'form_tattoo.html', {'tattoo_form': tattooForm})
@@ -46,7 +50,7 @@ def form_tattoo(request):
 def eliminar(request, id):
      tattooEliminado = Tattoo.objects.get(codigo=id)   #select * from tattoo where codigo=id
      tattooEliminado.delete()
-     return redirect ('home')
+     return redirect ('listado')
 
 def modificar(request, id):
      tattooModificado=Tattoo.objects.get(codigo=id)
@@ -57,10 +61,10 @@ def modificar(request, id):
           formulario = TattooForm(data=request.POST, instance=tattooModificado)
           if formulario.is_valid:
                formulario.save()
-               return redirect('home')
+               return redirect('listado')
      return render(request, 'modificar.html', datos)
 
-def home(request):
+def listado(request):
 	# accedemos al objeto que contiene los datos de la base
 	# el método all traerá todos los vehículos que estan en la tabla, es como el  select
 	tattoos= Tattoo.objects.all()
@@ -68,4 +72,4 @@ def home(request):
 
 	
 	#ahora se agrega para enviarlo al template y se manda la variable datos que es donde queda el diccionario
-	return render(request, 'home.html',context={'datos':tattoos})
+	return render(request, 'listado.html',context={'datos':tattoos})
