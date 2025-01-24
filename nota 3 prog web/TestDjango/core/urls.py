@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import menu, acercade, carrousel, formulario, galeria, login_view, django_view, form_tattoo, eliminar, modificar, home
+from .views import menu, acercade, carrousel, formulario, galeria, login_view, django_view, form_tattoo, eliminar, modificar, listado, tienda
 
 urlpatterns = [
     path('', menu, name='menu'),          # Ruta para la vista del menú (Página principal)
@@ -12,5 +12,6 @@ urlpatterns = [
     path('form_tattoo', form_tattoo, name='form_tattoo' ),
     path('eliminar/<id>', eliminar, name="eliminar"),
     path('modificar/<id>', modificar, name="modificar"),
-    path('home/',home, name='home'),
+    path('listado/',listado, name='listado'),
+    path('tienda/',tienda , name='tienda'),
 ]
