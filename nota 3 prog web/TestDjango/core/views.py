@@ -64,6 +64,16 @@ def modificar(request, id):
                return redirect('listado')
      return render(request, 'modificar.html', datos)
 
+def crear(request):
+    if request.method=="POST":
+        tattooform=TattooForm(request.POST,request.FILES)
+        if tattooform.is_valid():
+            tattooform.save()     #similar al insert en función
+            return redirect ('otra')
+    else:
+        tattooform=TattooForm()
+    return render (request, 'form_tattoo', {'tattooform': tattooform})
+
 def listado(request):
 	# accedemos al objeto que contiene los datos de la base
 	# el método all traerá todos los vehículos que estan en la tabla, es como el  select
