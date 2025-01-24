@@ -1,51 +1,51 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Tattoo, Artist
+from .models import Tattoo, Categoria
 
 class TattooForm(forms.ModelForm):
-    class Meta:
+    class Meta: 
         model = Tattoo
-        fields = ['title', 'description', 'image_url', 'style', 'artist']
+        fields = [ 'codigo', 'titulo', 'tipo', 'categoria', 'imagen']
         labels = {
-            'title': 'Título del tatuaje',
-            'description': 'Descripción',
-            'image_url': 'URL de la imagen',
-            'style': 'Estilo',
-            'artist': 'Artista',
+            'codigo': 'codigo',
+            'titulo' : 'titulo',
+            'tipo' : 'tipo',
+            'categoria' : 'Categoria', 
+            'imagen': 'Imagen'
         }
-        widgets = {
-            'title': forms.TextInput(
+        widgets ={
+            'codigo': forms.TextInput(
                 attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Ingrese el título del tatuaje',
-                    'id': 'title'
+                    'placeholder':'Ingrese codigo..',
+                    'id': 'codigo',
+                    'class': 'form-control'
                 }
             ),
-            'description': forms.Textarea(
+            'titulo': forms.TextInput(
                 attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Ingrese una descripción del tatuaje',
-                    'id': 'description'
+                    'placeholder': 'Ingrese titulo..',
+                    'id': 'titulo',
+                    'class': 'form-control'
                 }
             ),
-            'image_url': forms.URLInput(
+            'tipo': forms.TextInput(
                 attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Ingrese la URL de la imagen',
-                    'id': 'image_url'
+                    'placeholder': 'Ingrese tipo..',
+                    'id': 'tipo',
+                    'class': 'form-control'
                 }
             ),
-            'style': forms.TextInput(
+            'categoria': forms.Select(
+                attrs={
+                    'id': 'categoria',
+                    'class': 'form-control'
+                }
+            ), 
+            'imagen': forms.FileInput(
                 attrs={
                     'class': 'form-control',
-                    'placeholder': 'Ingrese el estilo del tatuaje',
-                    'id': 'style'
+                    'id': 'imagen',
                 }
-            ),
-            'artist': forms.Select(
-                attrs={
-                    'class': 'form-control',
-                    'id': 'artist'
-                }
-            ),
+            )
+            
         }

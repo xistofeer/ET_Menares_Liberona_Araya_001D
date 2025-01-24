@@ -33,22 +33,39 @@ def django_view(request):
     return render(request, 'django.html', {'tattoo_form': form})
 
 
+def form_tattoo(request):
+    if request.method=='POST': 
+        tattooForm = TattooForm(request.POST, request.FILES)
+        if tattooForm.is_valid():
+            tattooForm.save()
+            return redirect('home')
+    else:
+        tattooForm= TattooForm()
+    return render(request, 'form_tattoo.html', {'tattoo_form': tattooForm})
+
 def eliminar(request, id):
-    # Obtener el tatuaje por su ID y eliminarlo
-    tattoo_eliminado = Tattoo.objects.get(id)
-    tattoo_eliminado.delete()
-    return redirect('menu')  # Cambia 'galeria' según el nombre de tu vista o página principal
+     tattooEliminado = Tattoo.objects.get(codigo=id)   #select * from tattoo where codigo=id
+     tattooEliminado.delete()
+     return redirect ('home')
 
 def modificar(request, id):
-    # Obtener el tatuaje por su ID para modificarlo
-    tattoo_modificado = Tattoo.objects.get(id)
-    datos = {
-        'form': TattooForm(instance=tattoo_modificado)
-    }
-    if request.method == 'POST':
-        formulario = TattooForm(data=request.POST, instance=tattoo_modificado)
-        if formulario.is_valid():
-            formulario.save()
-            return redirect('galeria')  # Cambia 'galeria' según el nombre de tu vista o página principal
-    return render(request, 'modificar.html', datos)
-    
+     tattooModificado=Tattoo.objects.get(codigo=id)
+     datos = {
+          'form' : TattooForm(instance=tattooModificado)
+     }
+     if request.method=='POST':
+          formulario = TattooForm(data=request.POST, instance=tattooModificado)
+          if formulario.is_valid:
+               formulario.save()
+               return redirect('home')
+     return render(request, 'modificar.html', datos)
+
+def home(request):
+	# accedemos al objeto que contiene los datos de la base
+	# el método all traerá todos los vehículos que estan en la tabla, es como el  select
+	tattoos= Tattoo.objects.all()
+	#ahora crearemos un diccionario donde pasaremos los datos del vehículo al template
+
+	
+	#ahora se agrega para enviarlo al template y se manda la variable datos que es donde queda el diccionario
+	return render(request, 'home.html',context={'datos':tattoos})
