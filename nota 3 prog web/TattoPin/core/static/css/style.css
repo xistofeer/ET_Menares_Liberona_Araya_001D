@@ -1,0 +1,533 @@
+/* Esto es para menús desplegables */
+.dropdown {
+    display: inline-block;
+    position: relative; 
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute; 
+    top: 100%; 
+    left: 0; 
+    min-width: 150px; 
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    background-color: #000; 
+    z-index: 1000; /
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; 
+}
+
+.dropdown-content a {
+    display: block;
+    color: #ffffff;
+    padding: 5px 10px; 
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.dropdown-content a:hover {
+    color: #ffffff;
+    background-color: rgba(192, 192, 192, 0.7); 
+}
+/*---------------------------------------*/
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px){
+    header nav ul{
+        flex-direction: column;
+        align-items: center;
+    }
+    header nav ul li img{
+        width: clamp(60px, 10vw, 80px);
+        height: clamp(60px, 10vw, 80px);
+    }
+    .cuadro{
+        width: 90%;
+        padding: clamp(8px, 2vw, 10px);
+    }
+    iframe{
+        width: 100%;
+        height: auto;
+    }
+    footer nav ul{
+        flex-direction: column;
+        height: auto;
+    }
+}
+@media (max-width: 480px){
+    nav ul{
+        gap: 5px;
+    }
+    header nav ul li a{
+        font-size: clamp(12px, 3vw, 14px);
+    }
+    .cuadro{
+        padding: clamp(5px, 2vw, 10px);
+        font-size: clamp(12px, 3vw, 14px);
+    }
+    p, a{
+        font-size: clamp(12px, 3vw, 14px);
+    }
+    .dynamic-load-button,
+    .formulario__btn,
+    .carousel-button {
+        width: 100%;
+        font-size: clamp(12px, 4vw, 14px);
+        padding: clamp(8px, 2vw, 12px);
+    }
+}
+
+/*---------------------------------------*/
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: #303030;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    color: #3d3d3d;
+    box-sizing: border-box; 
+}
+
+header{
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: clamp(15px, 3vw, 20px);
+}
+header h1{
+    margin: 0;
+    font-size: clamp(20px, 5vw, 32px);
+}
+nav ul{
+    list-style: none;
+    padding: 0;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(10px, 3vw, 15px);
+}
+nav ul li{
+    display: flex;
+    align-items: center;
+}
+nav ul.headerlogo li img{
+    width: clamp(80px, 10vw, 100px);
+    height: clamp(80px, 10vw, 100px);
+    object-fit: contain;
+}
+header nav ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: clamp(14px, 2.5vw, 16px);
+}
+
+.cuadro{
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+    height: auto;
+    margin: 20px auto;
+    padding: clamp(15px, 3vw, 20px);
+    color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+div.relative{
+    position: relative;
+}
+
+footer{
+    text-align: center;
+    padding: clamp(8px, 2vw, 10px);
+    background-color: #1a1a1a; 
+    color: white;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+
+p{
+    text-align: justify;
+    font-size: clamp(14px, 3vw, 16px);
+    font-family: sans-serif;
+    line-height: 1.6;
+    color: #ffffff; 
+    margin-bottom: 20px;
+}
+a{
+    text-decoration: none;
+    text-align: justify;
+    font-size: clamp(13px, 2.5vw, 15px);
+    font-family: sans-serif;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+/* Navbar Collapsible */
+.navbar {
+    background-color: #000;
+}
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+.navbar-toggler-icon {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 2px;
+}
+.navbar-collapse {
+    justify-content: center;
+}
+
+
+
+/*De aqui para abajo corresponde al sitio carrusel ------------------------------------------------*/
+
+.carousel-container {
+    position: relative;
+    max-width: 100%;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-images img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.full-width-image {
+    width: 100%; 
+    height: auto; 
+    object-fit: contain; 
+    display: block;
+    margin: 20px 0; 
+}
+
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    border: 1px solid #ddd;
+}
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.carousel-images img {
+    width: 100%;
+    flex-shrink: 0;
+}
+.carousel-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.carousel-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: clamp(5px, 2vw, 10px);
+    cursor: pointer;
+    font-size: clamp(5px, 2.5vw, 16px); 
+    transition: all 0.3s ease;
+}
+
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+@media (max-width: 480px) {
+    .carousel-button {
+        padding: 1px; 
+        font-size: 20px; 
+        width: 40px; 
+        height: 40px; 
+        line-height: 40px; 
+    }
+}
+
+/*Aqui esta el estilo del sitio galeria*/
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: clamp(10px, 3vw, 20px);
+    padding: clamp(15px, 3vw, 20px);
+}
+
+.gallery-item {
+    text-align: center;
+    margin-bottom: clamp(15px, 3vw, 20px);
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item p {
+    text-align: center;
+    margin: 10px 0;
+    font-size: clamp(14px, 3vw, 16px);
+    color: #333;
+}
+
+/* esta parte es del js para cargar la api*/
+.dynamic-gallery-container {
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.dynamic-images-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.dynamic-images-grid img {
+    width: 100%;
+    height: 200px; /* Altura fija para uniformar las imágenes */
+    object-fit: cover; /* Asegura que las imágenes se recorten para llenar el espacio */
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dynamic-images-grid img:hover {
+    transform: scale(1.05);
+}
+
+.dynamic-load-button {
+    margin-top: 20px;
+    background-color: #0075FF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.dynamic-load-button:hover {
+    background-color: #0056b3;
+}
+
+/*Aqui esta el estilo de los sitios Formulario-Login*/
+
+form textarea {
+    color: white !important; /* Cambia el color del texto dentro del formulario a blanco */
+    }
+
+    form input 
+    form select, 
+    form textarea {
+        background-color: transparent; /* Fondo transparente para que contraste con el texto blanco */
+        border: 1px solid white; /* Bordes blancos para mejor visibilidad */
+    }
+
+    form label {
+        color: white; /* Asegúrate de que las etiquetas también sean blancas */
+    }
+.pass-icon {
+    height: 20px;
+    width: 20px;
+}
+/*---------------------------------------*/  
+
+    main {
+        max-width: 800px;
+        width: 90%;
+        margin: auto;
+        padding: 40px;
+    }
+    
+    .formulario {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    
+    .formulario__label {
+        display: block;
+        font-weight: 700;
+        padding: 10px;
+        cursor: pointer;
+    }
+    
+    .formulario__grupo-input {
+        position: relative;
+    }
+    
+    .formulario__input {
+        width: 100%;
+        background: #fff;
+        border: 3px solid transparent;
+        border-radius: 3px;
+        height: 45px;
+        line-height: 45px;
+        padding: 0 40px 0 10px;
+        transition: .3s ease all;
+    }
+    
+    .formulario__input:focus {
+        border: 3px solid #0075FF;
+        outline: none;
+        box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
+    }
+    
+    .formulario__input-error {
+        font-size: 12px;
+        margin-bottom: 0;
+        display: none;
+    }
+    
+    .formulario__input-error-activo {
+        display: block;
+    }
+    
+    .formulario__validacion-estado {
+        position: absolute;
+        right: 10px;
+        bottom: 15px;
+        z-index: 100;
+        font-size: 16px;
+        opacity: 0;
+    }
+    
+    .formulario__checkbox {
+        margin-right: 10px;
+    }
+    
+    .formulario__grupo-terminos, 
+    .formulario__mensaje,
+    .formulario__grupo-btn-enviar {
+        grid-column: span 2;
+    }
+    
+    .formulario__mensaje {
+        height: 45px;
+        line-height: 45px;
+        background: #F66060;
+        padding: 0 15px;
+        border-radius: 3px;
+        display: none;
+    }
+    
+    .formulario__mensaje-activo {
+        display: block;
+    }
+    
+    .formulario__mensaje p {
+        margin: 0;
+    }
+    
+    .formulario__grupo-btn-enviar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .formulario__btn {
+        height: 45px;
+        line-height: 45px;
+        width: 30%;
+        background: #000;
+        color: #fff;
+        font-weight: bold;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: .1s ease all;
+    }
+    
+    .formulario__btn:hover {
+        box-shadow: 3px 0px 30px rgba(163,163,163, 1);
+    }
+    
+    .formulario__mensaje-exito {
+        font-size: 14px;
+        color: #119200;
+        display: none;
+    }
+    
+    .formulario__mensaje-exito-activo {
+        display: block;
+    }
+    
+    /* ----- -----  Estilos para Validacion ----- ----- */
+    .formulario__grupo-correcto .formulario__validacion-estado {
+        color: #1ed12d;
+        opacity: 1;
+    }
+    
+    .formulario__grupo-incorrecto .formulario__label {
+        color: #bb2929;
+    }
+    
+    .formulario__grupo-incorrecto .formulario__validacion-estado {
+        color: #bb2929;
+        opacity: 1;
+    }
+    
+    .formulario__grupo-incorrecto .formulario__input {
+        border: 3px solid #bb2929;
+    }
+    
+    
+    /* ----- -----  Mediaqueries ----- ----- */
+    @media screen and (max-width: 800px) {
+        .formulario {
+            grid-template-columns: 1fr;
+        }
+    
+        .formulario__grupo-terminos, 
+        .formulario__mensaje,
+        .formulario__grupo-btn-enviar {
+            grid-column: 1;
+        }
+    
+        .formulario__btn {
+            width: 100%;
+        }
+    }
