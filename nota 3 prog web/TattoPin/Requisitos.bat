@@ -45,6 +45,7 @@ echo.
 pip install django
 pip install pillow
 pip install djangorestframework
+pip install django-crispy-forms
 
 :: Migraciones de la base de datos
 echo.
@@ -73,7 +74,9 @@ echo ========================================
 echo         INICIANDO EL SERVIDOR
 echo ========================================
 echo.
+start http://127.0.0.1:8000
 python manage.py runserver
+
 
 :: Pausar para mantener la consola abierta
 echo.
