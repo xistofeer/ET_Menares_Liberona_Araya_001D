@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
+from django.http import JsonResponse
 from .forms import TattooForm
-from .models import Tattoo, Categoria
+from .models import Tattoo, Categoria, Carrito
 
 def menu(request):
     return render(request, 'menu.html')
@@ -20,11 +22,51 @@ def galeria(request):
 def login_view(request):
     return render(request, 'registration/login.html')
 
+
 def tienda(request):
     tattoos=Tattoo.objects.all()
     categorias = Categoria.objects.filter(tattoo__isnull=False).distinct()
     return render(request, 'tienda.html', {'datos': tattoos, 'categorias': categorias})
 
+def carrito(request):
+    if not request.user.is_authenticated:
+        messages.warning(request, "Debes iniciar sesión para ver tu carrito.")
+        return redirect('login')
+
+    carrito_items = Carrito.objects.filter(usuario=request.user)
+    total_precio = sum(item.tattoo.precio for item in carrito_items)
+
+    return render(request, 'carrito.html', {'carrito': carrito_items, 'total_precio': total_precio})
+
+def agregar_al_carrito(request):
+    if request.method == "POST":
+        if not request.user.is_authenticated:
+            return JsonResponse({"error": "Debes iniciar sesión para agregar productos al carrito."}, status=403)
+
+        tattoo_id = request.POST.get("tattoo_id")
+        tattoo = get_object_or_404(Tattoo, id=tattoo_id)
+
+        carrito, created = Carrito.objects.get_or_create(usuario=request.user)
+        if carrito.productos.filter(id=tattoo.id).exists():
+            return JsonResponse({"error": "Este producto ya está en el carrito."}, status=400)
+
+        carrito.productos.add(tattoo)
+        carrito.save()
+
+        return JsonResponse({"message": "Producto agregado al carrito."})
+
+    return JsonResponse({"error": "Método no permitido."}, status=405)
+
+def eliminar_del_carrito(request, tattoo_id):
+    if request.user.is_authenticated:
+        tattoo = get_object_or_404(Tattoo, codigo=tattoo_id)
+        carrito_item = Carrito.objects.filter(usuario=request.user, tattoo=tattoo).first()
+        
+        if carrito_item:
+            carrito_item.delete()
+            messages.success(request, "Tatuaje eliminado del carrito.")
+
+    return redirect('carrito')
 
 def django_view(request):
     if request.method == 'POST':
