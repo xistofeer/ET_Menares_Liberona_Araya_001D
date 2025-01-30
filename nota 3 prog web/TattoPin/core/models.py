@@ -1,5 +1,6 @@
 # from disutils.command.upload import upload
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Categoria(models.Model):
@@ -20,3 +21,17 @@ class Tattoo(models.Model):
 
     def __str__(self):
         return self.codigo
+    
+class Carrito(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, related_name='carrito')
+    tattoo = models.ForeignKey(Tattoo, on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ('usuario', 'tattoo') #Esto evita que se repitan los tatuajes en el carrito
+
+    def __str__(self):
+        return f"Carrito de {self.usuario.username} - {self.tattoo.titulo}"
+    
+    @staticmethod
+    def total_usuario(usuario):
+        return sum(item.tattoo.precio for item in Carrito.objects.filter(usuario=usuario))
