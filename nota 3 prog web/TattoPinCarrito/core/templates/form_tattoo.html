@@ -10,6 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
     <link href="{% static 'css/estilos.css' %}" rel="stylesheet">
+    <link rel="icon" href="{% static 'image/Logoproyecto.png' %}" type="image/png">    <title>Administrar</title>
     <style>
         label.error{
             color:red;
@@ -17,46 +18,69 @@
             width: 200px;
         }
     </style>
-    <script>
-        $(function(){
-            $("#formulario").validate({
-                rules:{
-                    codigo: "required",
-                    titulo: "required",
-                    tipo: "required",
-                    categoria: "required",
-                    precio: "required",
-                    imagen: "required",
+   <script>
+    $(function () {
+        $("#formulario").validate({
+            rules: {
+                codigo: {
+                    required: true, // Campo obligatorio
                 },
-                messages:{
-                    codigo:{
-                        required: 'Ingrese una codigo..',
-                    },
-                    titulo:{
-                        required: 'Ingrese una titulo..',
-                    },
-                    tipo:{
-                        required: 'Ingrese un tipo..',
-                    },
-                    categoria:{
-                        required: 'Seleccione una categoria..',
-                    },
-                    precio:{
-                        required: 'Ingrese el precio..',
-                    },
-                    imagen:{
-                        required:'Seleccione un archivo .jpg'
-                    }
+                titulo: {
+                    required: true, // Campo obligatorio
+                    minlength: 3, // Longitud mínima de 3 caracteres
                 },
-
-            })
-        })
-
-    </script>
+                tipo: {
+                    required: true, // Campo obligatorio
+                },
+                categoria: {
+                    required: true, // Campo obligatorio
+                },
+                precio: {
+                    required: true, // Campo obligatorio
+                    number: true, // Debe ser un número
+                    min: 0.01, // Mayor a 0
+                },
+                imagen: {
+                    required: true, // Campo obligatorio
+                    accept: "image/*", // Solo archivos de imagen
+                },
+            },
+            messages: {
+                codigo: {
+                    required: "Por favor, ingrese el código del producto.",
+                },
+                titulo: {
+                    required: "Por favor, ingrese un título.",
+                    minlength: "El título debe tener al menos 3 caracteres.",
+                },
+                tipo: {
+                    required: "Por favor, ingrese el tipo de producto.",
+                },
+                categoria: {
+                    required: "Por favor, seleccione una categoría.",
+                },
+                precio: {
+                    required: "Por favor, ingrese el precio del producto.",
+                    number: "El precio debe ser un número válido.",
+                    min: "El precio debe ser mayor a 0.",
+                },
+                imagen: {
+                    required: "Por favor, seleccione una imagen.",
+                    accept: "El archivo debe ser una imagen válida (.jpg, .png, etc.).",
+                },
+            },
+            submitHandler: function (form) {
+                alert("Formulario enviado correctamente.");
+                form.submit(); // Envía el formulario si pasa la validación
+            },
+        });
+    });
+</script>
 
 
 </head>
 <body>
+    {% if user.is_staff or user.is_superuser %}
     <div class="container">
         <h2>Creando Tattoo</h2>
         <form method="POST" action="#" id="formulario" enctype="multipart/form-data">
@@ -108,5 +132,8 @@
             <a href="{% url 'listado' %}" class="btn btn-success">Volver</a>
         </form>
     </div>
+    {% else %}
+    <h3>No tienes permisos para acceder a esta página.</h3>
+{% endif %}
 </body>
 </html>

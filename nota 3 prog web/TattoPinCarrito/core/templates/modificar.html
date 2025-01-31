@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TattoPin - Modificar</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="icon" href="{% static 'image/Logoproyecto.png' %}" type="image/png">    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
@@ -15,6 +15,9 @@
             color:red;
             font-size: 0.8em;
             width: 200px;
+        }
+        h2{
+            color: white;
         }
     </style>
     <script>
@@ -52,6 +55,7 @@
 </head>
     
 <body>
+    {% if user.is_staff or user.is_superuser %}
     <div class="container">
         <h2>Modificar Tattoo </h2>
         <form method="POST" id="formulario2">
@@ -99,5 +103,8 @@
 
         </form>
     </div>
+    {% else %}
+    <h3>No tienes permisos para acceder a esta página.</h3>
+{% endif %}
 </body>
 </html>
