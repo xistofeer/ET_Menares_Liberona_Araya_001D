@@ -30,7 +30,7 @@
                     <li><a href="{% url 'carrito' %}" target="_self">
                             <img src="{% static 'image/icons/carrito2.png' %}" style="width: 30px;" alt="carrito"> CARRITO</a></li>
                             {% if user.is_authenticated %}
-                            <li>>Hola, {{ user.username }}</li>
+                            <li><a href="{% url 'perfil' %}">Hola, {{ user.username }}</a></li>
                             <li><a href="{% url 'cerrar' %}">Cerrar Sesión</a></li>
                         {% else %}
                             <div class="dropdown show">
