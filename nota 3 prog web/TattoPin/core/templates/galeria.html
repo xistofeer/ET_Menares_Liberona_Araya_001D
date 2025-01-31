@@ -29,13 +29,18 @@
                     <li><a href="{% url 'tienda' %}" target="_self">TIENDA</a></li>
                     <li><a href="{% url 'carrito' %}" target="_self">
                             <img src="{% static 'image/icons/carrito2.png' %}" style="width: 30px;" alt="carrito"> CARRITO</a></li>
-                
-                    <div class="dropdown">
-                        <a class="dropdown-toggle"><img src="{% static 'image/icons/lock2.png' %}" style="width: 20px;"> CUENTA</a>
-                        <a style="color: #8d8d8d;"></a>
-                        <div class="dropdown-content">
-                            <a href="{% url 'login' %}">Iniciar Sesión</a>
-                            <a href="{% url 'formulario' %}">Crear Cuenta</a>
+                            {% if user.is_authenticated %}
+                            <li>>Hola, {{ user.username }}</li>
+                            <li><a href="{% url 'cerrar' %}">Cerrar Sesión</a></li>
+                        {% else %}
+                            <div class="dropdown show">
+                                <a><img src="{% static 'image/icons/lock2.png' %}" style="width: 20px;"> CUENTA</a>
+                                <a style="color: #8d8d8d;"> ▼</a>
+                                <li class="dropdown-content">
+                                    <a href="{% url 'login' %}">Iniciar Sesión</a>
+                                </li>
+                            </div>
+                        {% endif %}
                         </div>
                     </div>
                 </ul>

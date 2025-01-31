@@ -7,83 +7,106 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <script type="text/javascript" src="js/jquery-3.7.1.js"></script>
-    <title>TattoPin - Login</title>
+    <title>TattoPin - Register</title>
     <link rel="icon" href="{% static 'image/Logoproyecto.png' %}" type="image/png">
 </head>
+<style>
+    form textarea {
+    color: rgb(0, 0, 0) !important; /* Cambia el color del texto dentro del formulario a blanco */
+    }
+
+    form input 
+    form select, 
+    form textarea {
+        background-color: transparent; /* Fondo transparente para que contraste con el texto blanco */
+        border: 1px solid rgb(0, 0, 0); /* Bordes blancos para mejor visibilidad */
+    }
+
+    form label {
+        color: rgb(0, 0, 0); /* Asegúrate de que las etiquetas también sean blancas */
+    }
+.pass-icon {
+    height: 20px;
+    width: 20px;
+    
+}
+</style>
+
 <body>
     <header>
         <div class="relative">
             <nav>
                 <ul class="headerlogo">
-                    <li>
-                        <a href="{% url 'menu' %}" target="_self">
-                            <img src="{% static 'image/Logoproyecto.png' %}" alt="logo">
-                            <span class="logo-text">TattoPin 2K25</span>
-                        </a>
-                    </li>
                     <li><a href="{% url 'menu' %}" target="_self">INICIO</a></li>
                     <li><a href="{% url 'acercade' %}" target="_self">ACERCA DE</a></li>
+                    <li><a href="{% url 'menu' %}" target="_self">
+                        <img src="{% static 'image/Logoproyecto.png' %}" alt="logo"></a></li>
                     <li><a href="{% url 'galeria' %}" target="_self">GALERIA</a></li>
                     <li><a href="{% url 'carrousel' %}" target="_self">NUESTRO TRABAJO</a></li>
-                
-                    <div class="dropdown">
-                        <a class="dropdown-toggle"><img src="{% static 'image/icons/lock2.png' %}" style="width: 20px;"> CUENTA</a>
-                        <a style="color: #8d8d8d;"></a>
-                        <div class="dropdown-content">
-                            <a href="{% url 'formulario' %}">Crear Cuenta</a>
-                        </div>
+                    
+                    <div class="dropdown show">
+                        <a><img src="{% static 'image/icons/lock2.png' %}" style="width: 20px;"> CUENTA</a>
+                        <a style="color: #8d8d8d;"> ▼</a>
+                        <li class="dropdown-content">
+                            <a href="{% url 'login' %}">Iniciar Sesion</a>
+                        </li>
                     </div>
                 </ul>
-                
             </nav>
         </div>
     </header>
-    <main>
-        <section class="container mt-5">
-            <h1 class="text-center mb-4" style="color: white;">Iniciar Sesíon</h1>
-            <form id="loginForm">
-                <!-- Correo -->
-                <div class="mb-3">
-                    <label for="email" class="form-label">Correo Electrónico</label>
-                    <input type="email" class="form-control" id="email" placeholder="correo@ejemplo.com" required>
-                    <div class="invalid-feedback">Por favor, introduce un correo válido.</div>
-                </div>
 
-                <!-- Contraseña -->
-                <div class="mb-3">
-                    <label for="password" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña" required minlength="6" maxlength="20">
-                    <img src="{% static 'image/icons/closeeye2.png' %}" class="pass-icon" alt="show/hide"></img>
-                    <div class="invalid-feedback">
-                        La contraseña debe tener entre 6 y 20 caracteres.
+    {% if form.errors %}
+    <div class="alert alert-danger">
+        <ul>
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
+
+    <main class="container">
+        <div class="row">
+            <div class="col-12 col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h2>Iniciar sesion</h2>
+                        <hr>
+                        <form action="#" method="POST">
+                            {% csrf_token %}
+
+                            <div class="form-group">
+                                <label for="">Username: </label><br>
+                                {{form.username}}
+                            </div>
+                            
+
+                            <div class="form-group">
+                                <label for="">Contraseña: </label><br>
+                                {{form.password}}
+                            </div>
+                            
+
+                            <a href="{% url 'login' %}" class="btn btn-link">Login</a> 
+                            <a href="{% url 'menu' %}" class="btn btn-link">Inicio</a>
+                            <input type="submit" value="Sing in" class="btn btn-outline-primary" style="float:right">
+                        </form>
                     </div>
                 </div>
+            </div>
 
-                <!-- Recuperar Contraseña -->
-                <div class="mb-3 text-end">
-                    <a href="#" class="link-light">¿Olvidaste tu contraseña?</a>
-                </div>
-
-                <!-- Botón Login -->
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary">Ingresar</button>
-                </div>
-                
-            </form>
-        </section>
-
-        <!-- Opción de registro -->
-        <div class="text-center">
-            <p style="color: white;">
-                ¿No tienes usuario? 
-                <a href="formulario.html" class="link-light" style="font-weight: bold;">Regístrate aquí</a>
-            </p>
         </div>
+
+
+
     </main>
 
     <footer>
         <div class="relative">Copyright &copy; 2025 TattoPin. Derechos Reservados</div>
-
         <div class="relative">
             <nav>
                 <ul>
@@ -98,6 +121,6 @@
         </div>
     </footer>
 
-    <script src="{% static 'js/mostrarContra.js' %}"></script>
 </body>
+
 </html>

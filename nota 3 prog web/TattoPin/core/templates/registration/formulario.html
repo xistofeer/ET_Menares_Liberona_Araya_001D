@@ -2,127 +2,121 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     {% load static %}
-    <title>TattoPin - Registro</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script type="text/javascript" src="js/jquery-3.7.1.js"></script>
+    <title>TattoPin - Register</title>
     <link rel="icon" href="{% static 'image/Logoproyecto.png' %}" type="image/png">
 </head>
+
+<style>
+    form textarea {
+    color: rgb(0, 0, 0) !important; /* Cambia el color del texto dentro del formulario a blanco */
+    }
+
+    form input 
+    form select, 
+    form textarea {
+        background-color: transparent; /* Fondo transparente para que contraste con el texto blanco */
+        border: 1px solid rgb(0, 0, 0); /* Bordes blancos para mejor visibilidad */
+    }
+
+    form label {
+        color: rgb(0, 0, 0); /* Asegúrate de que las etiquetas también sean blancas */
+    }
+.pass-icon {
+    height: 20px;
+    width: 20px;
+    
+}
+</style>
+
 <body>
     <header>
         <div class="relative">
             <nav>
                 <ul class="headerlogo">
-                    <li>
-                        <a href="{% url 'menu' %}" target="_self">
-                            <img src="{% static 'image/Logoproyecto.png' %}" alt="logo">
-                            <span class="logo-text">TattoPin 2K25</span>
-                        </a>
-                    </li>
                     <li><a href="{% url 'menu' %}" target="_self">INICIO</a></li>
                     <li><a href="{% url 'acercade' %}" target="_self">ACERCA DE</a></li>
+                    <li><a href="{% url 'menu' %}" target="_self">
+                        <img src="{% static 'image/Logoproyecto.png' %}" alt="logo"></a></li>
                     <li><a href="{% url 'galeria' %}" target="_self">GALERIA</a></li>
                     <li><a href="{% url 'carrousel' %}" target="_self">NUESTRO TRABAJO</a></li>
-                
-                    <div class="dropdown">
-                        <a class="dropdown-toggle"><img src="{% static 'image/icons/lock2.png' %}" style="width: 20px;"> CUENTA</a>
-                        <a style="color: #8d8d8d;"></a>
-                        <div class="dropdown-content">
-                            <a href="{% url 'login' %}">Iniciar Sesión</a>
-                        </div>
+                    
+                    <div class="dropdown show">
+                        <a><img src="{% static 'image/icons/lock2.png' %}" style="width: 20px;"> CUENTA</a>
+                        <a style="color: #8d8d8d;"> ▼</a>
+                        <li class="dropdown-content">
+                            <a href="{% url 'login' %}">Iniciar Sesion</a>
+                        </li>
                     </div>
                 </ul>
-                
             </nav>
         </div>
     </header>
 
-    <main>
-        <section class="container mt-5">
-            <h1 class="text-center mb-4" style="color: white;">Registro Usuario</h1>
-            <form action="" class="formulario" id="formulario">
-                <!-- Grupo: Usuario -->
-                <div class="formulario__grupo" id="grupo__usuario">
-                    <label for="usuario" class="formulario__label">Usuario</label>
-                    <div class="formulario__grupo-input">
-                        <input type="text" class="formulario__input" name="usuario" id="usuario" placeholder="Cachupin123">
-                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+    {% if form.errors %}
+    <div class="alert alert-danger">
+        <ul>
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
+
+    <main class="container">
+        <div class="row">
+            <div class="col-12 col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h2>Registrarse</h2>
+                        <hr>
+                        <form action="#" method="POST">
+                            {% csrf_token %}
+
+                            <div class="form-group">
+                                <label for="">Username: </label><br>
+                                {{form.username}}
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Nombre: </label><br>
+                                {{form.first_name}}
+                            </div>
+                            <div class="form-group">
+                                <label for="">Apellido: </label><br>
+                                {{form.last_name}}
+                            </div>
+                            <div class="form-group">
+                                <label for="">Email: </label><br>
+                                {{form.email}}
+                            </div>
+                            <div class="form-group">
+                                <label for="">Contraseña: </label><br>
+                                {{form.password1}}
+                            </div>
+                            <div class="form-group">
+                                <label for="">Confirmar Contraseña: </label><br>
+                                {{form.password2}}
+                            </div>
+                            <a href="{% url 'login' %}" class="btn btn-link">Login</a> 
+                            <a href="{% url 'menu' %}" class="btn btn-link">Inicio</a>
+                            <input type="submit" value="Sing in" class="btn btn-outline-primary" style="float:right">
+                        </form>
                     </div>
-                    <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 caracteres y solo puede contener numeros, letras y guion bajo.</p>
                 </div>
+            </div>
 
-                <!-- Grupo: Nombre -->
-                <div class="formulario__grupo" id="grupo__nombre">
-                    <label for="nombre" class="formulario__label">Nombre</label>
-                    <div class="formulario__grupo-input">
-                        <input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Cachupin Perez">
-                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                    </div>
-                    <p class="formulario__input-error">El nombre solo puede contener letras y espacios.</p>
-                </div>
+        </div>
 
-                <!-- Grupo: Contraseña -->
-                <div class="formulario__grupo" id="grupo__password">
-                    <label for="password" class="formulario__label">Contraseña</label>
-                    <div class="formulario__grupo-input">
-                        <input type="password" class="formulario__input" name="password" id="password">
-                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                    </div>
-                    <p class="formulario__input-error">La contraseña debe ser de 4 a 12 caracteres.</p>
-                </div>
 
-                <!-- Grupo: Contraseña 2 -->
-                <div class="formulario__grupo" id="grupo__password2">
-                    <label for="password2" class="formulario__label">Repetir Contraseña</label>
-                    <div class="formulario__grupo-input">
-                        <input type="password" class="formulario__input" name="password2" id="password2">
-                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                    </div>
-                    <p class="formulario__input-error">Ambas contraseñas deben ser iguales.</p>
-                    <img src="{% static 'image/icons/closeeye2.png' %}" class="pass-icon" alt="show/hide">
-                </div>
 
-                <!-- Grupo: Correo Electrónico -->
-                <div class="formulario__grupo" id="grupo__correo">
-                    <label for="correo" class="formulario__label">Correo Electrónico</label>
-                    <div class="formulario__grupo-input">
-                        <input type="email" class="formulario__input" name="correo" id="correo" placeholder="xxx@xxx.com">
-                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                    </div>
-                    <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
-                </div>
-
-                <!-- Grupo: Teléfono -->
-                <div class="formulario__grupo" id="grupo__telefono">
-                    <label for="telefono" class="formulario__label">Teléfono</label>
-                    <div class="formulario__grupo-input">
-                        <input type="text" class="formulario__input" name="telefono" id="telefono" placeholder="4491234567">
-                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                    </div>
-                    <p class="formulario__input-error">El teléfono solo puede contener números y el máximo son 14 dígitos.</p>
-                </div>
-
-                <!-- Grupo: Términos y Condiciones -->
-                <div class="formulario__grupo" id="grupo__terminos">
-                    <label class="formulario__label">
-                        <input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos">
-                        Acepto los Términos y Condiciones
-                    </label>
-                </div>
-
-                <div class="formulario__mensaje" id="formulario__mensaje">
-                    <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente.</p>
-                </div>
-
-                <div class="formulario__grupo formulario__grupo-btn-enviar">
-                    <button type="submit" class="formulario__btn">Enviar</button>
-                    <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
-                </div>
-                <br>
-            </form>
-        </section>
     </main>
 
     <footer>
@@ -141,8 +135,6 @@
         </div>
     </footer>
 
-    <script src="{% static 'js/formulario.js' %}"></script>
-    <script src="#" crossorigin="anonymous"></script>
-    <script src="{% static 'js/mostrarContra2.js' %}"></script>
 </body>
+
 </html>
