@@ -1,12 +1,20 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.http import JsonResponse
-from .forms import TattooForm
+from .forms import TattooForm, RegistroUserForm
 from .models import Tattoo, Categoria, Carrito
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login as auth_login
+
 
 def menu(request):
     return render(request, 'menu.html')
 
+def miperfil(request):
+    return render(request, 'registration/miperfil.html')
+    
 def acercade(request):
     return render(request, 'acercade.html')
 
@@ -14,7 +22,13 @@ def carrousel(request):
     return render(request, 'Carrousel.html')
 
 def formulario(request):
-    return render(request, 'registration/formulario.html')
+    form = RegistroUserForm()
+    if request.method == 'POST':
+        form = RegistroUserForm(request.POST)
+        if form.is_valid():
+            # Procesa el formulario
+            form.save()
+    return render(request, 'registration/formulario.html', {'form': form})
 
 def galeria(request):
     return render(request, 'galeria.html')
@@ -126,3 +140,23 @@ def listado(request):
 	
 	#ahora se agrega para enviarlo al template y se manda la variable datos que es donde queda el diccionario
 	return render(request, 'listado.html',context={'datos':tattoos})
+
+
+def cerrar(request):
+    logout(request)
+    return redirect('menu')
+
+def registrando(request):
+    data={
+        'form':RegistroUserForm()
+    }
+    if request.method=='POST':
+        formulario = RegistroUserForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            user = authenticate(username=formulario.cleaned_data["username"],
+                                password=formulario.cleaned_data["password1"])
+            login(request,user)
+            return redirect('menu')
+        data["form"]=formulario
+    return render(request, 'registration/formulario',data)
