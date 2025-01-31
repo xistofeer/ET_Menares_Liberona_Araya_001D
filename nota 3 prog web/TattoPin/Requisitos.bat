@@ -46,6 +46,7 @@ pip install django
 pip install pillow
 pip install djangorestframework
 pip install django-crispy-forms
+pip install crispy
 
 :: Migraciones de la base de datos
 echo.
