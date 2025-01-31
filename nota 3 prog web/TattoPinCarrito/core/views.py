@@ -3,17 +3,25 @@ import datetime
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.http import JsonResponse
-from .forms import TattooForm, RegistroUserForm
+from .forms import TattooForm, RegistroUserForm, EditarUserForm
 from .models import Tattoo, Categoria, Carrito
 from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
 
+def perfil(request):
+    if request.method == 'POST':
+        form = EditarUserForm(request.POST, instance=request.user)  # Cargamos los datos del usuario en el formulario
+        if form.is_valid():
+            form.save()  # Guardamos los cambios en el perfil
+            return redirect('perfil')  # Redirigimos al perfil después de guardar
+    else:
+        form = EditarUserForm(instance=request.user)  # Cargamos los datos del usuario en el formulario
+    
+    return render(request, 'registration/perfil.html', {'form': form})
+
 def menu(request):
     return render(request, 'menu.html')
 
-def miperfil(request):
-    return render(request, 'registration/miperfil.html')
-    
 def acercade(request):
     return render(request, 'acercade.html')
 
@@ -34,18 +42,6 @@ def galeria(request):
 
 def login_view(request):
     return render(request, 'registration/login.html')
-
-
-def django_view(request):
-    if request.method == 'POST':
-        form = TattooForm(request.POST)
-        if form.is_valid():
-            form.save()
-            # Redirigir o mostrar un mensaje de éxito
-    else:
-        form = TattooForm()
-
-    return render(request, 'django.html', {'tattoo_form': form})
 
 
 def form_tattoo(request):

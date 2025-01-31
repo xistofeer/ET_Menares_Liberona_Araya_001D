@@ -14,17 +14,22 @@ class RegistroUserForm(UserCreationForm):
         model = User 
         fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
 
+class EditarUserForm(UserCreationForm):
+    class Meta: 
+        model = User 
+        fields = ['first_name', 'last_name', 'email', 'password1', 'password2']
+
 
 class TattooForm(forms.ModelForm):
     class Meta: 
         model = Tattoo
         fields = [ 'codigo', 'titulo', 'tipo', 'categoria', 'precio','imagen']
         labels = {
-            'codigo': 'codigo',
-            'titulo' : 'titulo',
-            'tipo' : 'tipo',
+            'codigo': 'Codigo',
+            'titulo' : 'Titulo',
+            'tipo' : 'Tipo',
             'categoria' : 'Categoria',
-            'precio' : 'precio',
+            'precio' : 'Precio',
             'imagen': 'Imagen'
         }
         widgets ={
