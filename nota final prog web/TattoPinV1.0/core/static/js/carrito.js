@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 totalPrecio += producto.precio * producto.cantidad;
             });
 
-            totalCarrito.innerText = `Total: $${totalPrecio.toFixed(2)}`;
+            totalCarrito.innerText = `Total: $${Math.round(totalPrecio)}`;
         }
     }
 
