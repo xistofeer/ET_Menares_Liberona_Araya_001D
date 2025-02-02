@@ -50,24 +50,27 @@
                 <h2 style="text-align: center; color: white; font-weight: bold;">MI PERFIL</h2>
                 <hr>
                 <div class="perfil-info">
-                    <!-- Mostrar foto de perfil estándar -->
                     <div class="cuadro">
                         <img src="{% static 'image/avatar.webp' %}" alt="Foto de Perfil" class="img-thumbnail foto-perfil-cuadro" width="150">
                         <h3>{{ request.user.username }}</h3> <!-- Mostrar el nombre de usuario (no editable) -->
-                        <p>Nombre: {{ request.user.first_name }}</p>
-                        <p>Apellido: {{ request.user.last_name }}</p>
-                        <p>Email: {{ request.user.email }}</p>
+                        
+                        {% if request.user.is_staff %}
+                            <h2 style="color: red; text-align: center; font-weight: bold; margin-top: 20px;">Usuario Admin no puede ser modificado.</h2>
+                        {% else %}
+                            <p>Nombre: {{ request.user.first_name }}</p>
+                            <p>Apellido: {{ request.user.last_name }}</p>
+                            <p>Email: {{ request.user.email }}</p>
+                            
+                            <hr>
+                            <h3 style="color: white;">Editar Perfil</h3>
+                            <form method="POST">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                            </form>
+                        {% endif %}
                     </div>
                 </div>
-    
-                <!-- Formulario de edición de perfil -->
-                <hr>
-                <h3 style="color: white;">Editar Perfil</h3>
-                <form method="POST">
-                    {% csrf_token %}
-                    {{ form.as_p }}  <!-- Muestra solo los campos modificables: nombre, apellido, correo, contraseña -->
-                    <button type="submit" class="btn btn-primary">Guardar cambios</button>
-                </form>
             </section>
         {% else %}
             <section class="perfil-restringido">
@@ -82,6 +85,7 @@
             </section>
         {% endif %}
     </main>
+    
     
 
     <footer>
