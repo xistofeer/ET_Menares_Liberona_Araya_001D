@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
             contenidoBoleta += `<li>${producto.nombre} - ${producto.categoria} - $${producto.precio}</li>`;
             total += producto.precio;
         });
-        contenidoBoleta += `</ul><h3>Total: $${total.toFixed(2)}</h3>`;
+        contenidoBoleta += `</ul><h3>Total: $${Math.round(total)}</h3>`;
 
         let ventana = window.open("", "_blank");
         ventana.document.write(`
