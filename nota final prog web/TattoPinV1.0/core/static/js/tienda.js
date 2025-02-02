@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
             total += item.precio;  // Calculando el total
         });
     
-        totalCarrito.textContent = total.toFixed(2);
+        totalCarrito.textContent = Math.round(total);
         finalizarCompraBtn.disabled = carrito.length === 0;
     }
 
