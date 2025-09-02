@@ -3,4 +3,3 @@ Entrega de la evaluacion final de programacion web, sitio de tatuajes con regist
 <p align="center">
   <img src="https://github.com/user-attachments/assets/e47020d8-f29b-4601-a207-1f30f8ab4a59"/>
 </p>
-
